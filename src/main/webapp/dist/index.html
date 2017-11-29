@@ -6,8 +6,20 @@
 	<!-- BASE FOR PRODUCTION -->
 	<base href="/ers/dist/">
 
-	<!-- BASE FOR FRONT-END DEV -->
-	<!-- <base href="/"> -->
+	<!-- DETECT AND SET BASE FOR FRONT-END DEV -->
+	<script>
+		/*
+		* detects the Angular development environment and sets
+		* the base tag to point to the current directory
+		*/
+		const urlExp = new RegExp('.*localhost:4200.*');
+
+		if ( urlExp.test( document.URL ) ) {
+		    const head = document.getElementsByTagName('head')[0];
+		    const base = document.getElementsByTagName('base')[0];
+		    base.setAttribute('href', '/');
+		} 
+	</script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">

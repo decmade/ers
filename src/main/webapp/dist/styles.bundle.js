@@ -62,7 +62,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n{\n\tcolor: rgb(242, 106, 37);\n}\n\n.revature-navbar .navbar-brand {\n\tfont-size: 1.5em;\n\tborder: 0;\n}\n\n.revature-navbar .nav-link {\n\ttext-transform: uppercase;\n\tfont-size: 1.0em;\n\tborder-bottom:2px solid rgba(255, 255, 255, 0);\n\tfont-weight: 700;\n}\n\n.revature-navbar .nav-link:hover {\n\tborder-bottom:2px solid rgb(242, 106, 37);\n}\n\np {\n\ttext-align: justify;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.revature-orange {\n\tcolor: rgb(242, 106, 37);\n}\n\n.revature-navbar .navbar-brand {\n\tfont-size: 1.5em;\n\tborder: 0;\n}\n\n.revature-navbar .nav-link {\n\ttext-transform: uppercase;\n\tfont-size: 1.0em;\n\tborder-bottom:2px solid rgba(255, 255, 255, 0);\n\tfont-weight: 700;\n}\n\n.revature-navbar .nav-link:hover {\n\tborder-bottom:2px solid rgb(242, 106, 37);\n}\n\np {\n\ttext-align: justify;\n}\n\nhr.revature {\n    background-color: rgb(242, 106, 37);\n}\n\n", ""]);
 
 // exports
 
