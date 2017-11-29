@@ -86,6 +86,7 @@ public class InitializeUsersTable extends AbstractMigration
 	}
 	
 	/**
+	 * @deprecated
 	 * creates a sequence for the ID field
 	 */
 	private void addSequence()
@@ -105,6 +106,7 @@ public class InitializeUsersTable extends AbstractMigration
 	}
 	
 	/**
+	 * @deprecated
 	 * drops the sequence for the ID field
 	 */
 	private void dropSequence()
@@ -124,6 +126,7 @@ public class InitializeUsersTable extends AbstractMigration
 	}
 	
 	/**
+	 * @deprecated
 	 * creates a trigger for inserting and updating records
 	 */
 	private void addTrigger()
