@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>  
     <Resource name="jdbc/ers-oracle" auth="Container"
+    		  factory="org.apache.commons.dbcp.BasicDataSourceFactory" 
               type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
               url="jdbc:oracle:thin:@orcl.cue7hrs2nuxl.us-east-1.rds.amazonaws.com:1521:ORCL"
               username="ers" password="p4ssw0rd" maxTotal="5" maxIdle="10"
               maxWaitMillis="-1"/>
               
 	<Resource name="jdbc/ers-sqlite" auth="Container"
+				  factory="org.apache.commons.dbcp.BasicDataSourceFactory" 
 	              type="javax.sql.DataSource" driverClassName="org.sqlite.JDBC"
 	              url="jdbc:sqlite:/data/ers.db"
 	              maxTotal="5" maxIdle="10"
