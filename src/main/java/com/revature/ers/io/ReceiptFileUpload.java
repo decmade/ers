@@ -135,7 +135,6 @@ public class ReceiptFileUpload {
 	public static String getRootPath() {
 		
 		String[] parts = {
-			System.getProperty("user.dir"),
 			dataPath,
 			STORAGE_PREFIX,
 		};
