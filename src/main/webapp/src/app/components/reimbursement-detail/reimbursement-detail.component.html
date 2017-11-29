@@ -1,0 +1,193 @@
+<div id="app-reimbursement-detail" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <ng-container *ngIf="isNew();then newTitle; else detailTitle"></ng-container>
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container px-3">
+          <form>
+              <!-- ROW 1 (author, status)-->
+              <div class="form-group row" *ngIf="isNew() === false">
+
+                <label for="input-author" class="col-md-2 col-form-label"><span class="font-weight-bold">Author:</span></label>
+                <div class="col-md-4">
+                  <input type="text" readonly id="input-author" class="form-control-plaintext text-left" [value]="reimCopy?.author?.displayName">
+                </div>
+
+                <label for="input-status" class="col-form-label col-md-2"><span class="font-weight-bold">Status:</span></label>
+                <div class="col-md-4">
+                  <ng-container *ngIf="inApproveState(); then statusSelection; else statusDisplay"></ng-container>
+                </div>
+
+              </div>
+
+              <!-- ROW 2 (submitted, resolved)-->
+              <div class="form-group row" *ngIf="isNew() === false">
+                <label for="input-submitted" class="col-form-label col-md-2"><span class="font-weight-bold">Submitted:</span></label>
+                <div class="col-md-4">
+                  <input type="text" readonly id="input-submitted" class="form-control-plaintext text-left" [value]="reimCopy.submitted | date:'MM/dd/yyyy hh:mm a'">
+                </div>
+
+                <ng-container *ngIf="inEditableState() === false && reimCopy.resolved !== 'null'; then displayResolvedDate"></ng-container>
+
+              </div>
+
+              <!-- ROW 3 (type, resolver)-->
+              <div class="form-group row">
+                <label for="input-type" class="col-form-label col-md-2"><span class="font-weight-bold">Type:</span></label>
+                <div class="col-md-4">
+                  <ng-container *ngIf="inUpdateState(); then typeSelection; else typeDisplay"></ng-container>
+                </div>
+
+                <!-- show resolver if the request has been processed -->
+                <ng-container *ngIf="inEditableState(); then hideResolver; else displayResolver"></ng-container>
+              </div>
+
+              <!-- ROW 4 (amount)-->
+              <div class="form-group row">
+                <label for="input-amount" class="col-form-label col-md-2"><span class="font-weight-bold">Amount:</span></label>
+                <div class="col-md-4">
+                   <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-usd"></span></span>
+                    <input type="text" [readonly]="inUpdateState() === false" id="input-submitted" class="form-control text-left" name="amount" [ngModel]="reimCopy.amount | number:'1.2-2'" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="reimCopy.amount = $event">
+                  </div>
+                </div>
+
+                <div class="col-md-6"></div>
+              </div>
+
+
+              <!-- ROW 5 (description label)-->
+              <div class="form-group row">
+                <label for="input-description" class="col-md-10 col-form-label"><span class="font-weight-bold">Description:</span></label>
+              </div>
+
+              <!-- ROW 6 description-->
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea class="form-control" name="input-description" rows="5" [readonly]="inUpdateState() === false" [(ngModel)]="reimCopy.description"></textarea>
+              </div>
+              </div>
+
+              <!-- ROW 7 receipt -->
+              <div #reciptControl class="form-group row">
+                <ng-container *ngIf="inReceiptUpdateState(); then uploadReceipt; else displayReceipt"></ng-container>
+              </div>
+          </form>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <ng-container *ngIf="inEditableState();then editButtons; else dismissButton"></ng-container>
+
+        <ng-template #editButtons>
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="onSave()" *ngIf="inEditableState()"><span class="fa fa-floppy-o mr-2"></span>Save</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onCancel()"><span class="fa fa-ban mr-2"></span>Cancel</button>
+      </ng-template>
+
+      <ng-template #dismissButton>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()"><span class="fa fa-times mr-2"></span>Close</button>
+      </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BEGIN: templates -->
+
+<!-- TITLE -->
+<ng-template #detailTitle>
+  Reimbursement Detail&nbsp;[ {{ reimCopy.id }} ]
+</ng-template>
+
+<ng-template #newTitle>
+  Submit A New Reimbursement
+</ng-template>
+
+<!-- STATUS-->
+<ng-template #statusSelection>
+  <select #reimStatus id="input-status" class="custom-select" (change)="onStatusSelect( reimStatus.value )">
+    <option *ngFor="let status of reimStatuses" [value]="status.id" [selected]="status.id === reimCopy?.status?.id">
+      {{ status.description }}
+    </option>
+  </select>
+</ng-template>
+
+<ng-template #statusDisplay>
+    <input type="text" readonly id="input-status" class="form-control-plaintext" [value]="reimCopy?.status?.description">
+</ng-template>
+
+
+<!-- TYPE -->
+<ng-template #typeSelection>
+  <select #reimType id="input-type" class="custom-select" (change)="onTypeSelect( reimType.value )">
+    <option *ngFor="let type of reimTypes" [value]="type.id" [selected]="type.id === reimCopy?.type?.id">
+      {{ type.description }}
+    </option>
+  </select>
+</ng-template>
+
+<ng-template #typeDisplay>
+  <input type="text" readonly id="input-type" class="form-control-plaintext" [value]="reimCopy?.type?.description">
+</ng-template>
+
+
+<!-- RESOLVER -->
+<ng-template #displayResolver>
+  <label for="input-resolver" class="col-form-label col-md-2"><span class="font-weight-bold">Resolver:</span></label>
+  <div class="col-md-4">
+    <input id="input-resolver" type="text" readonly class="form-control-plaintext" [value]="reimCopy?.resolver?.displayName">
+  </div>
+</ng-template>
+
+<ng-template #hideResolver>
+  <div class="col-md-6"></div>
+</ng-template>
+
+
+<!-- RESOLVED DATE -->
+<ng-template #displayResolvedDate>
+  <label for="input-resolved" class="col-form-label col-md-2"><span class="font-weight-bold">Resolved:</span></label>
+  <div class="col-md-4">
+    <input type="text" readonly id="input-resolved" class="form-control-plaintext text-left" [value]="reimCopy.resolved | date:'MM/dd/yyyy hh:mm a'">
+  </div>
+</ng-template>
+
+
+<!-- RECEIPT -->
+<ng-template #displayReceipt>
+  <div class="col-md-12 text-center">
+    <ng-container *ngIf="inUpdateState();then showButtonGroup; else showViewButton"></ng-container>
+
+      <ng-template #showButtonGroup>
+        <div class="btn-group">
+          <a class="btn btn-lg btn-primary" target="blank" [href]="getReceiptUrl()">
+            <span class="fa fa-file-o mr-1"></span>
+            View Receipt
+          </a>
+          <button class="btn btn-primary btn-lg" (click)="setReceiptUpdateState()"><span class="fa fa-pencil"></span></button>
+        </div>
+      </ng-template>
+
+      <ng-template #showViewButton>
+        <a class="btn btn-lg btn-primary" target="blank" [href]="getReceiptUrl()">
+          <span class="fa fa-file-o mr-1"></span>
+          View Receipt
+        </a>
+      </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #uploadReceipt>
+    <label for="input-receipt" class="col-form-label col-md-3"><span class="font-weight-bold">Upload Receipt:</span></label>
+    
+    <div class="col-md-9">
+      <input #receiptUpload type="file" id="input-receipt" class="form-control">
+    </div>
+</ng-template>

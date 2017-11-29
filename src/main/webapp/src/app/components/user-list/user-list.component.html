@@ -1,0 +1,81 @@
+<div class="row mb-4">
+	<h1 class="display-5">Users</h1>
+</div>
+
+<div class="row mb-4">
+	<div class="col-md-12">
+		<form>
+			<div class="input-group">
+				<span class="input-group-button">
+					<button type="button" class="btn btn-primary" (click)="keyword = ''">
+						<span class="fa fa-refresh"></span>
+					</button>
+				</span>
+				<span class="input-group-addon">
+					<span class="fa fa-filter"></span>
+				</span>
+				<input type="text" class="form-control" placeholder="filter ..." name="keyword" [(ngModel)]="keyword">
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<table class="table table-striped">
+		<colgroup>
+			<col width="10%">
+			<col width="20%">
+			<col width="25">
+			<col width="25">
+			<col width="20%">
+		</colgroup>
+
+		<thead>
+				<tr>
+					<th>
+						ID
+						<button class="btn btn-default btn-sm ml-1" (click)="sort('id', false)">
+							<span class="fa fa-sort-amount-asc"></span>
+						</button>
+					</th>
+					<th>
+						Username
+						<button class="btn btn-default btn-sm ml-1" (click)="sort('identity', false)">
+							<span class="fa fa-sort-amount-asc"></span>
+						</button>
+					</th>
+					<th>
+						Last Name
+						<button class="btn btn-default btn-sm ml-1" (click)="sort('lastName', false)">
+							<span class="fa fa-sort-amount-asc"></span>
+						</button>
+					</th>
+					<th>
+						First Name
+						<button class="btn btn-default btn-sm ml-1" (click)="sort('firstName', false)">
+							<span class="fa fa-sort-amount-asc"></span>
+						</button>
+					</th>
+					<th>
+						Role
+						<button class="btn btn-default btn-sm ml-1" (click)="sort('role.description', false)">
+							<span class="fa fa-sort-amount-asc"></span>
+						</button>
+					</th>
+				</tr>
+		</thead>
+
+		<tbody>
+			<tr *ngFor="let user of getFilteredUsers()">
+				<td>{{ user.id }}</td>
+				<td>{{ user.identity }}</td>
+				<td>{{ user.lastName }}</td>
+				<td>{{ user.firstName }}</td>
+				<td>{{ user.role.description }}</td>
+			</tr>
+		</tbody>
+
+		<tfoot>
+		</tfoot>
+	</table>
+</div>

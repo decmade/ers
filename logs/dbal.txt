@@ -1,0 +1,440 @@
+2017-11-15 12:23:15 DEBUG DbConnection:65 - attempting to establish a database connection
+2017-11-15 12:23:16 DEBUG DbConnection:72 - database connection established
+2017-11-15 12:23:16 DEBUG UsersTableAdapter:88 - retrieving user associated with Identity: brownj from database
+2017-11-15 12:23:17 TRACE ResultSetWrapper:35 - attempting to convert ResultSet to Map<String,String>
+2017-11-15 12:23:17 TRACE ResultSetWrapper:46 - ResultSet converted successfully
+2017-11-15 12:23:42 DEBUG DbConnection:65 - attempting to establish a database connection
+2017-11-15 12:23:43 DEBUG DbConnection:72 - database connection established
+2017-11-15 12:23:43 DEBUG UsersTableAdapter:88 - retrieving user associated with Identity: brownj from database
+2017-11-15 12:23:44 TRACE ResultSetWrapper:35 - attempting to convert ResultSet to Map<String,String>
+2017-11-15 12:23:44 TRACE ResultSetWrapper:46 - ResultSet converted successfully
+2017-11-15 21:18:30 DEBUG DbConnection:65 - attempting to establish a database connection
+2017-11-15 21:18:32 DEBUG DbConnection:72 - database connection established
+2017-11-15 21:18:32 DEBUG InitializeAppMigration:15 - attempting to initialize data structure for application
+2017-11-15 21:18:32 INFO  InitializeUsersTable:23 - initializing Users table
+2017-11-15 21:18:32 DEBUG InitializeUsersTable:116 - attempting to drop ID sequence for Users table
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:120 - dropped ID sequence for Users table successfully
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:60 - attempting to drop Users table
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:64 - Users table dropped
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:43 - attempting to create Users table
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:47 - Users table created
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:97 - attempting to add ID sequence to Users table
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:101 - added ID sequence to Users table successfully
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:135 - attempting to add trigger to Users table
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:139 - added trigger to Users table successfully
+2017-11-15 21:18:33 TRACE UserObjectsLoader:64 - loading User objects defined by UserObjecstLoader
+2017-11-15 21:18:33 DEBUG InitializeUsersTable:77 - attempting to insert initial User records into the database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 1
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 2
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:33 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 3
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 4
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 5
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 6
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 7
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-15 21:18:34 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 8
+2017-11-15 21:18:34 DEBUG InitializeUsersTable:83 - inserted 8 User records into the database
+2017-11-15 21:18:34 INFO  InitializeUsersTable:32 - Users table initialized
+2017-11-15 21:18:34 INFO  InitializeUserRolesTable:17 - attempting to initialize UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:93 - attempting to drop ID sequence for UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:97 - dropped ID sequence for UserRoles table successfully
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:55 - attempting to drop UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:59 - UserRoles table dropped successfully
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:37 - attempting to created UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:41 - UserRoles table created successfully
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:74 - attempting to add ID sequence to UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:78 - added ID sequence to UserRoles table successfully
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:112 - attempting to add trigger to UserRoles table
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:116 - added trigger to UserRoles table successfully
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:126 - attempting to add initial UserRole records
+2017-11-15 21:18:34 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-15 21:18:34 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 1
+2017-11-15 21:18:34 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-15 21:18:34 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 2
+2017-11-15 21:18:34 DEBUG InitializeUserRolesTable:128 - 2 UserRole records inserted
+2017-11-15 21:18:34 INFO  InitializeUserRolesTable:26 - UserRoles table initialized
+2017-11-15 21:18:34 DEBUG InitializeReimbursementTypesTable:90 - attempting to drop ID sequence for ReimbursementTypes table
+2017-11-15 21:18:34 DEBUG InitializeReimbursementTypesTable:94 - dropped ID sequence for ReimbursementTypes table successfully
+2017-11-15 21:18:34 DEBUG InitializeReimbursementTypesTable:52 - attempting to drop ReimbursementTypes table
+2017-11-15 21:18:34 DEBUG InitializeReimbursementTypesTable:56 - ReimbursementTypes table dropped successfully
+2017-11-15 21:18:34 DEBUG InitializeReimbursementTypesTable:34 - attempting to created ReimbursementTypes table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:38 - ReimbursementTypes table created successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:71 - attempting to add ID sequence to ReimbursementTypes table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:75 - added ID sequence to ReimbursementTypes table successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:109 - attempting to add trigger to ReimbursementTypes table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:113 - added trigger to ReimbursementTypes table successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:123 - attempting to add initial ReimbursementType records
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 1
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 2
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 3
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 4
+2017-11-15 21:18:35 DEBUG InitializeReimbursementTypesTable:125 - 4 ReimbursementType records inserted
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:90 - attempting to drop ID sequence for ReimbursementStatus table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:94 - dropped ID sequence for ReimbursementStatus table successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:52 - attempting to drop ReimbursementStatus table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:56 - ReimbursementStatus table dropped successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:34 - attempting to created ReimbursementStatus table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:38 - ReimbursementStatus table created successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:71 - attempting to add ID sequence to ReimbursementStatus table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:75 - added ID sequence to ReimbursementStatus table successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:109 - attempting to add trigger to ReimbursementStatus table
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:113 - added trigger to ReimbursementStatus table successfully
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:123 - attempting to add initial ReimbursementStatus records
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 1
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 2
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-15 21:18:35 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 3
+2017-11-15 21:18:35 DEBUG InitializeReimbursementStatusTable:125 - 3 ReimbursementStatsus records inserted
+2017-11-15 21:18:35 DEBUG InitializeReimbursementsTable:90 - attempting to drop ID sequence for Reimbursements table
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:94 - dropped ID sequence for Reimbursements table successfully
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:52 - attempting to drop Reimbursements table
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:56 - Reimbursements table dropped successfully
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:34 - attempting to created Reimbursements table
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:38 - Reimbursements table created successfully
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:71 - attempting to add ID sequence to Reimbursements table
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:75 - added ID sequence to Reimbursements table successfully
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:109 - attempting to add trigger to Reimbursements table
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:113 - added trigger to Reimbursements table successfully
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:123 - attempting to add initial Reimbursement records
+2017-11-15 21:18:36 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-15 21:18:36 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:1
+2017-11-15 21:18:36 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-15 21:18:36 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:2
+2017-11-15 21:18:36 DEBUG InitializeReimbursementsTable:125 - 2 Reimbursement records inserted
+2017-11-15 21:18:36 DEBUG InitializeAppMigration:21 - application data structure is completed
+2017-11-17 10:05:24 ERROR DbConnection:96 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2017-11-17 10:05:24 DEBUG InitializeAppMigration:15 - attempting to initialize data structure for application
+2017-11-17 10:05:24 INFO  InitializeUsersTable:23 - initializing Users table
+2017-11-17 10:05:24 DEBUG InitializeUsersTable:116 - attempting to drop ID sequence for Users table
+2017-11-17 10:06:13 DEBUG DbConnection:72 - attempting to establish a database connection
+2017-11-17 10:06:14 DEBUG DbConnection:79 - database connection established
+2017-11-17 10:06:14 DEBUG InitializeAppMigration:15 - attempting to initialize data structure for application
+2017-11-17 10:06:15 INFO  InitializeUsersTable:23 - initializing Users table
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:116 - attempting to drop ID sequence for Users table
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:120 - dropped ID sequence for Users table successfully
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:60 - attempting to drop Users table
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:64 - Users table dropped
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:43 - attempting to create Users table
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:47 - Users table created
+2017-11-17 10:06:15 DEBUG InitializeUsersTable:97 - attempting to add ID sequence to Users table
+2017-11-17 10:06:16 DEBUG InitializeUsersTable:101 - added ID sequence to Users table successfully
+2017-11-17 10:06:16 DEBUG InitializeUsersTable:135 - attempting to add trigger to Users table
+2017-11-17 10:06:16 DEBUG InitializeUsersTable:139 - added trigger to Users table successfully
+2017-11-17 10:06:16 TRACE UserObjectsLoader:64 - loading User objects defined by UserObjecstLoader
+2017-11-17 10:06:16 DEBUG InitializeUsersTable:77 - attempting to insert initial User records into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 1
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 2
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 3
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 4
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 5
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 6
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 7
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:06:16 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 8
+2017-11-17 10:06:16 DEBUG InitializeUsersTable:83 - inserted 8 User records into the database
+2017-11-17 10:06:16 INFO  InitializeUsersTable:32 - Users table initialized
+2017-11-17 10:06:16 INFO  InitializeUserRolesTable:17 - attempting to initialize UserRoles table
+2017-11-17 10:06:16 DEBUG InitializeUserRolesTable:93 - attempting to drop ID sequence for UserRoles table
+2017-11-17 10:06:16 DEBUG InitializeUserRolesTable:97 - dropped ID sequence for UserRoles table successfully
+2017-11-17 10:06:16 DEBUG InitializeUserRolesTable:55 - attempting to drop UserRoles table
+2017-11-17 10:06:16 DEBUG InitializeUserRolesTable:59 - UserRoles table dropped successfully
+2017-11-17 10:06:16 DEBUG InitializeUserRolesTable:37 - attempting to created UserRoles table
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:41 - UserRoles table created successfully
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:74 - attempting to add ID sequence to UserRoles table
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:78 - added ID sequence to UserRoles table successfully
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:112 - attempting to add trigger to UserRoles table
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:116 - added trigger to UserRoles table successfully
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:126 - attempting to add initial UserRole records
+2017-11-17 10:06:17 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-17 10:06:17 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 1
+2017-11-17 10:06:17 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-17 10:06:17 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 2
+2017-11-17 10:06:17 DEBUG InitializeUserRolesTable:128 - 2 UserRole records inserted
+2017-11-17 10:06:17 INFO  InitializeUserRolesTable:26 - UserRoles table initialized
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:90 - attempting to drop ID sequence for ReimbursementTypes table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:94 - dropped ID sequence for ReimbursementTypes table successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:52 - attempting to drop ReimbursementTypes table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:56 - ReimbursementTypes table dropped successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:34 - attempting to created ReimbursementTypes table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:38 - ReimbursementTypes table created successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:71 - attempting to add ID sequence to ReimbursementTypes table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:75 - added ID sequence to ReimbursementTypes table successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:109 - attempting to add trigger to ReimbursementTypes table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:113 - added trigger to ReimbursementTypes table successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:123 - attempting to add initial ReimbursementType records
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 1
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 2
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 3
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:06:17 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 4
+2017-11-17 10:06:17 DEBUG InitializeReimbursementTypesTable:125 - 4 ReimbursementType records inserted
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:90 - attempting to drop ID sequence for ReimbursementStatus table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:94 - dropped ID sequence for ReimbursementStatus table successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:52 - attempting to drop ReimbursementStatus table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:56 - ReimbursementStatus table dropped successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:34 - attempting to created ReimbursementStatus table
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:38 - ReimbursementStatus table created successfully
+2017-11-17 10:06:17 DEBUG InitializeReimbursementStatusTable:71 - attempting to add ID sequence to ReimbursementStatus table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementStatusTable:75 - added ID sequence to ReimbursementStatus table successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementStatusTable:109 - attempting to add trigger to ReimbursementStatus table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementStatusTable:113 - added trigger to ReimbursementStatus table successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementStatusTable:123 - attempting to add initial ReimbursementStatus records
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 1
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 2
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:06:18 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 3
+2017-11-17 10:06:18 DEBUG InitializeReimbursementStatusTable:125 - 3 ReimbursementStatsus records inserted
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:90 - attempting to drop ID sequence for Reimbursements table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:94 - dropped ID sequence for Reimbursements table successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:52 - attempting to drop Reimbursements table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:56 - Reimbursements table dropped successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:34 - attempting to created Reimbursements table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:38 - Reimbursements table created successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:71 - attempting to add ID sequence to Reimbursements table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:75 - added ID sequence to Reimbursements table successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:109 - attempting to add trigger to Reimbursements table
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:113 - added trigger to Reimbursements table successfully
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:123 - attempting to add initial Reimbursement records
+2017-11-17 10:06:18 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-17 10:06:18 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:1
+2017-11-17 10:06:18 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-17 10:06:18 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:2
+2017-11-17 10:06:18 DEBUG InitializeReimbursementsTable:125 - 2 Reimbursement records inserted
+2017-11-17 10:06:18 INFO  InitializeReceiptsTable:19 - attempting to initialize Receipts table
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:95 - attempting to drop ID sequence for Receipts table
+2017-11-17 10:06:18 ERROR InitializeReceiptsTable:101 - ORA-02289: sequence does not exist
+
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:57 - attempting to drop Receipts table
+2017-11-17 10:06:18 ERROR InitializeReceiptsTable:63 - ORA-00942: table or view does not exist
+
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:39 - attempting to created Receipts table
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:43 - Receipts table created successfully
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:76 - attempting to add ID sequence to Receipts table
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:80 - added ID sequence to Receipts table successfully
+2017-11-17 10:06:18 DEBUG InitializeReceiptsTable:114 - attempting to add trigger to Receipts table
+2017-11-17 10:06:19 DEBUG InitializeReceiptsTable:118 - added trigger to Receipts table successfully
+2017-11-17 10:06:19 DEBUG InitializeReceiptsTable:128 - attempting to add initial Receipts records
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 1
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 2
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 3
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 4
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:06:19 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 5
+2017-11-17 10:06:19 DEBUG InitializeReceiptsTable:130 - 5 Receipt records inserted
+2017-11-17 10:06:19 INFO  InitializeReceiptsTable:28 - Receipts table initialized
+2017-11-17 10:06:19 DEBUG InitializeAppMigration:21 - application data structure is completed
+2017-11-17 10:07:12 DEBUG DbConnection:72 - attempting to establish a database connection
+2017-11-17 10:07:13 DEBUG DbConnection:79 - database connection established
+2017-11-17 10:07:13 DEBUG InitializeAppMigration:15 - attempting to initialize data structure for application
+2017-11-17 10:07:13 INFO  InitializeUsersTable:23 - initializing Users table
+2017-11-17 10:07:13 DEBUG InitializeUsersTable:116 - attempting to drop ID sequence for Users table
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:120 - dropped ID sequence for Users table successfully
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:60 - attempting to drop Users table
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:64 - Users table dropped
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:43 - attempting to create Users table
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:47 - Users table created
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:97 - attempting to add ID sequence to Users table
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:101 - added ID sequence to Users table successfully
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:135 - attempting to add trigger to Users table
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:139 - added trigger to Users table successfully
+2017-11-17 10:07:14 TRACE UserObjectsLoader:64 - loading User objects defined by UserObjecstLoader
+2017-11-17 10:07:14 DEBUG InitializeUsersTable:77 - attempting to insert initial User records into the database
+2017-11-17 10:07:14 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:14 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 1
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 2
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 3
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 4
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 5
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 6
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 7
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:172 - attempting to save User to database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:273 - attempting to insert new User record into the database
+2017-11-17 10:07:15 DEBUG UsersTableAdapter:290 - successfully inserted new User record for user with ID: 8
+2017-11-17 10:07:15 DEBUG InitializeUsersTable:83 - inserted 8 User records into the database
+2017-11-17 10:07:15 INFO  InitializeUsersTable:32 - Users table initialized
+2017-11-17 10:07:15 INFO  InitializeUserRolesTable:17 - attempting to initialize UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:93 - attempting to drop ID sequence for UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:97 - dropped ID sequence for UserRoles table successfully
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:55 - attempting to drop UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:59 - UserRoles table dropped successfully
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:37 - attempting to created UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:41 - UserRoles table created successfully
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:74 - attempting to add ID sequence to UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:78 - added ID sequence to UserRoles table successfully
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:112 - attempting to add trigger to UserRoles table
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:116 - added trigger to UserRoles table successfully
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:126 - attempting to add initial UserRole records
+2017-11-17 10:07:15 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-17 10:07:15 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 1
+2017-11-17 10:07:15 DEBUG UserRolesTableAdapter:156 - attempting to insert UserRole object into database
+2017-11-17 10:07:15 DEBUG UserRolesTableAdapter:167 - successfully inserted UserRole with id: 2
+2017-11-17 10:07:15 DEBUG InitializeUserRolesTable:128 - 2 UserRole records inserted
+2017-11-17 10:07:15 INFO  InitializeUserRolesTable:26 - UserRoles table initialized
+2017-11-17 10:07:15 DEBUG InitializeReimbursementTypesTable:90 - attempting to drop ID sequence for ReimbursementTypes table
+2017-11-17 10:07:15 DEBUG InitializeReimbursementTypesTable:94 - dropped ID sequence for ReimbursementTypes table successfully
+2017-11-17 10:07:15 DEBUG InitializeReimbursementTypesTable:52 - attempting to drop ReimbursementTypes table
+2017-11-17 10:07:15 DEBUG InitializeReimbursementTypesTable:56 - ReimbursementTypes table dropped successfully
+2017-11-17 10:07:15 DEBUG InitializeReimbursementTypesTable:34 - attempting to created ReimbursementTypes table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:38 - ReimbursementTypes table created successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:71 - attempting to add ID sequence to ReimbursementTypes table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:75 - added ID sequence to ReimbursementTypes table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:109 - attempting to add trigger to ReimbursementTypes table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:113 - added trigger to ReimbursementTypes table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:123 - attempting to add initial ReimbursementType records
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 1
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 2
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 3
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:108 - attempting to save ReimbursementType to database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:206 - attempting to insert new ReimbursementType record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementTypeTableAdapter:218 - successfully inserted new ReimbursementType record with ID: 4
+2017-11-17 10:07:16 DEBUG InitializeReimbursementTypesTable:125 - 4 ReimbursementType records inserted
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:90 - attempting to drop ID sequence for ReimbursementStatus table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:94 - dropped ID sequence for ReimbursementStatus table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:52 - attempting to drop ReimbursementStatus table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:56 - ReimbursementStatus table dropped successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:34 - attempting to created ReimbursementStatus table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:38 - ReimbursementStatus table created successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:71 - attempting to add ID sequence to ReimbursementStatus table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:75 - added ID sequence to ReimbursementStatus table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:109 - attempting to add trigger to ReimbursementStatus table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:113 - added trigger to ReimbursementStatus table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:123 - attempting to add initial ReimbursementStatus records
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 1
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 2
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:108 - attempting to save ReimbursementStatus to database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:206 - attempting to insert new ReimbursementStatus record into the database
+2017-11-17 10:07:16 DEBUG ReimbursementStatusTableAdapter:218 - successfully inserted new ReimbursementStatus record with ID: 3
+2017-11-17 10:07:16 DEBUG InitializeReimbursementStatusTable:125 - 3 ReimbursementStatsus records inserted
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:90 - attempting to drop ID sequence for Reimbursements table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:94 - dropped ID sequence for Reimbursements table successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:52 - attempting to drop Reimbursements table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:56 - Reimbursements table dropped successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:34 - attempting to created Reimbursements table
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:38 - Reimbursements table created successfully
+2017-11-17 10:07:16 DEBUG InitializeReimbursementsTable:71 - attempting to add ID sequence to Reimbursements table
+2017-11-17 10:07:17 DEBUG InitializeReimbursementsTable:75 - added ID sequence to Reimbursements table successfully
+2017-11-17 10:07:17 DEBUG InitializeReimbursementsTable:109 - attempting to add trigger to Reimbursements table
+2017-11-17 10:07:17 DEBUG InitializeReimbursementsTable:113 - added trigger to Reimbursements table successfully
+2017-11-17 10:07:17 DEBUG InitializeReimbursementsTable:123 - attempting to add initial Reimbursement records
+2017-11-17 10:07:17 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-17 10:07:17 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:1
+2017-11-17 10:07:17 DEBUG ReimbursementsTableAdapter:227 - attempting to insert Reimbursement object into database
+2017-11-17 10:07:17 DEBUG ReimbursementsTableAdapter:243 - successfully inserted Reimbursement object into database with ID:2
+2017-11-17 10:07:17 DEBUG InitializeReimbursementsTable:125 - 2 Reimbursement records inserted
+2017-11-17 10:07:17 INFO  InitializeReceiptsTable:19 - attempting to initialize Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:95 - attempting to drop ID sequence for Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:99 - dropped ID sequence for Receipts table successfully
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:57 - attempting to drop Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:61 - Receipts table dropped successfully
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:39 - attempting to created Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:43 - Receipts table created successfully
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:76 - attempting to add ID sequence to Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:80 - added ID sequence to Receipts table successfully
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:114 - attempting to add trigger to Receipts table
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:118 - added trigger to Receipts table successfully
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:128 - attempting to add initial Receipts records
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 1
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 2
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 3
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 4
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:110 - attempting to save Receipt to database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:209 - attempting to insert new Receipt record into the database
+2017-11-17 10:07:17 DEBUG ReceiptsTableAdapter:222 - successfully inserted new Receipt record with ID: 5
+2017-11-17 10:07:17 DEBUG InitializeReceiptsTable:130 - 5 Receipt records inserted
+2017-11-17 10:07:17 INFO  InitializeReceiptsTable:28 - Receipts table initialized
+2017-11-17 10:07:17 DEBUG InitializeAppMigration:21 - application data structure is completed

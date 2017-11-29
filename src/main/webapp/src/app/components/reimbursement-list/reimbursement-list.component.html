@@ -1,0 +1,147 @@
+<div class="row mb-4">
+	<div class="col-md-10">
+		<h1 class="display-5">Reimbursements</h1>
+	</div>
+
+	<div class="col-md-2">
+		<button type="button" class="btn btn-success btn-lg" (click)="startNewReimbursement()" data-toggle="modal" data-target="#app-reimbursement-detail">
+			<span class="fa fa-plus mr-1"></span>
+			New Request
+		</button>
+	</div>
+</div>
+
+<!-- Search Bar -->
+<div class="row mb-4">
+	<div class="col-md-12">
+		<form>
+			<div class="input-group">
+				<span class="input-group-button">
+					<button type="button" class="btn btn-primary" (click)="keyword = ''">
+						<span class="fa fa-refresh"></span>
+					</button>
+				</span>
+				<span class="input-group-addon">
+					<span class="fa fa-filter"></span>
+				</span>
+				<input type="text" class="form-control" placeholder="filter ..." name="keyword" [(ngModel)]="keyword">
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_PENDING">
+			Pending
+			<span class="badge badge-pill badge-primary ml-1">{{ (reimbursements | rStatus:STATE_SHOW_PENDING).length }}</span>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_APPROVED">
+			Approved
+			<span class="badge badge-pill badge-success ml-1">{{ (reimbursements | rStatus:STATE_SHOW_APPROVED).length }}</span>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_DENIED">
+			Denied
+			<span class="badge badge-pill badge-danger ml-1">{{ (reimbursements | rStatus:STATE_SHOW_DENIED).length }}</span>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_ALL">
+			ALL
+			<span class="badge badge-pill badge-secondary ml-1">{{ reimbursements.length }}</span>
+		</a>
+	</li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+	<!-- ALL Reimbursements Tab (using states to change the list)-->
+	<div class="tab-pane active" id="tab-all" role="tabpanel">
+		<table class="table table-striped">
+			<colgroup>
+				<col width="8%">
+				<col width="10%">
+				<col width="15%">
+				<col width="*">
+				<col width="15%">
+				<col width="15%">
+				<col width="7%">
+			</colgroup>
+
+			<thead>
+					<tr>
+						<th>
+							ID
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('id', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th>
+							Type
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('type.description', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th>
+							Submitted
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('submitted', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th>
+							Author
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('author.displayName', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th>
+							Status
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('status.description', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th class="text-right">
+							Amount
+							<button class="btn btn-default btn-sm ml-1" (click)="sort('amount', false)">
+								<span class="fa fa-sort-amount-asc"></span>
+							</button>
+						</th>
+						<th>&nbsp;</th>
+					</tr>
+			</thead>
+
+			<tbody>
+				<tr *ngFor="let reimbursement of getReimbursements() | rStatus:state">
+					<td>{{ reimbursement.id }}</td>
+					<td>{{ reimbursement.type.description }}</td>
+					<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>
+					<td>{{ reimbursement.author.displayName }}</td>
+					<td>{{ reimbursement.status.description }}</td>
+					<td class="text-right">{{ reimbursement.amount | currency }}</td>
+					<td>
+						<app-reimbursement-button [reimbursement]="reimbursement" (click)="openDetailView(reimbursement)" data-target="#app-reimbursement-detail" data-toggle="modal"></app-reimbursement-button>
+
+					</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+			</tfoot>
+		</table>
+	</div>
+
+	<app-reimbursement-detail [reimbursement]="selectedReimbursement"></app-reimbursement-detail>
+
+</div>
+<!-- BEGIN: templates -->
+
+<!-- EMPTY FIELDS -->
+<ng-template #emptyField>
+	<span class="text-center">---</span>
+</ng-template>
