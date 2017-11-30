@@ -65,7 +65,7 @@ public class Authenticator {
 			session.setAttribute(USER_SESSION_KEY, String.valueOf( userWrapper.getId() ) );
 
 			return true;
-		}
+		} 
 		
 		/*
 		 * default policy

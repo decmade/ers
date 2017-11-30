@@ -22,11 +22,11 @@ public class InitializeUsersTable extends AbstractMigration
 	public void run() {
 		log.info("initializing Users table");
 		
-//		this.dropSequence();
+		this.dropSequence();
 		this.dropUsersTable();
 		this.createUsersTable();
-//		this.addSequence();
-//		this.addTrigger();
+		this.addSequence();
+		this.addTrigger();
 		this.fillUsersTable();	
 		
 		log.info("Users table initialized");
@@ -86,7 +86,6 @@ public class InitializeUsersTable extends AbstractMigration
 	}
 	
 	/**
-	 * @deprecated
 	 * creates a sequence for the ID field
 	 */
 	private void addSequence()
@@ -106,7 +105,6 @@ public class InitializeUsersTable extends AbstractMigration
 	}
 	
 	/**
-	 * @deprecated
 	 * drops the sequence for the ID field
 	 */
 	private void dropSequence()

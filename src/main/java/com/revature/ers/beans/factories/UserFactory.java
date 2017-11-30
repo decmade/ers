@@ -46,6 +46,7 @@ public class UserFactory extends AbstractFactory<UserInterface>
 		
 		log.debug("instantiating User object with Map<String,String>");
 		
+
 		data.forEach((key, value) -> {
 			switch( key.toLowerCase() ) {
 				case "id" :
@@ -57,7 +58,13 @@ public class UserFactory extends AbstractFactory<UserInterface>
 					user.setIdentity( value );
 					break;
 				case "password" :
-					String secret = data.get("secret");
+					/*
+					 * Oracle revealed the weakness in the approach here
+					 * there the column names as retrieved fromt he database
+					 * may be in all upper and it is therefore difficult to
+					 * look for one in particular like the secret field
+					 */
+					String secret = this.getSecretValue(data);
 					
 					/* 
 					 * if user has no secret defined already, generate one
@@ -91,5 +98,32 @@ public class UserFactory extends AbstractFactory<UserInterface>
 		});
 		
 		return user;
+	}
+	
+	/**
+	 * extracts the secret column from the map outside of the property
+	 * assignment loop to detect it prior to looping into the password field
+	 * and therefore knowing that a secret is already set when we get there
+	 * 
+	 *  -> thanks Oracle
+	 *  
+	 * @param Map<String, String> data
+	 * 
+	 * @return String
+	 */
+	private String getSecretValue(Map<String, String> data ) {
+		String secret = "";
+		Object[] keySet = data.keySet().toArray();
+		
+		for(int i = 0; i < keySet.length; i++ ) {
+			String key = (String)keySet[i];
+			
+			if ( "secret".equalsIgnoreCase(key) ) {
+				secret = data.get(key);
+			}
+		}
+
+		return secret;
+		
 	}
 }

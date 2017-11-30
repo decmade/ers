@@ -14,11 +14,11 @@ public class InitializeReimbursementStatusTable extends AbstractMigration
 
 	@Override
 	public void run() {
-//		this.dropSequence();
+		this.dropSequence();
 		this.dropReimbursementStatusTable();
 		this.createReimbursementStatusTable();
-//		this.addSequence();
-//		this.addTrigger();
+		this.addSequence();
+		this.addTrigger();
 		this.fillTable();
 		
 	}

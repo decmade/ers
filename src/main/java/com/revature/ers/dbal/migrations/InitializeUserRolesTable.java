@@ -16,11 +16,11 @@ public class InitializeUserRolesTable extends AbstractMigration
 	public void run() {
 		log.info("attempting to initialize UserRoles table");
 		
-//		this.dropSequence();
+		this.dropSequence();
 		this.dropUsersRoleTable();
 		this.createUsersRoleTable();
-//		this.addSequence();
-//		this.addTrigger();
+		this.addSequence();
+		this.addTrigger();
 		this.fillUserRolesTable();
 		
 		log.info("UserRoles table initialized");

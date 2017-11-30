@@ -16,11 +16,11 @@ public class InitializeReceiptsTable extends AbstractMigration
 	public void run() {
 		log.info("attempting to initialize Receipts table");
 		
-//		this.dropSequence();
+		this.dropSequence();
 		this.dropTable();
 		this.createTable();
-//		this.addSequence();
-//		this.addTrigger();
+		this.addSequence();
+		this.addTrigger();
 		this.fillUserRolesTable();
 		
 		log.info("Receipts table initialized");
