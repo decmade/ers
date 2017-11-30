@@ -105,7 +105,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
                 this.saveReimbursement();
             }
         } else {
-            this.alertService.push('reimbursement validation failed', AlertMessage.CATEGORY_ERROR);
+            this.alertService.push('reimbursement form validation failed', AlertMessage.CATEGORY_ERROR);
         }
     }
 
@@ -167,6 +167,8 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
             uploadedReceipt = fileBrowser.files[0];
 
             this.receiptService.save( uploadedReceipt );
+        } else {
+            this.alertService.push('you MUST provide a receipt file', AlertMessage.CATEGORY_ERROR);
         }
     }
 
@@ -241,6 +243,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
             .subscribe( (reimbursement) => {
                 ReimbursementWrapper.copy( reimbursement, this.reimbursement );
                 this.cloneObject();
+                $('#app-reimbursement-detail').modal('hide');
             });
 
         this.reimbursementStatusListSubscription = this.reimStatusService.getList()

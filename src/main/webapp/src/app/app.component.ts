@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 // services
 import { LoginService } from './services/login.service';
 
+import * as bootstrap from 'bootstrap';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

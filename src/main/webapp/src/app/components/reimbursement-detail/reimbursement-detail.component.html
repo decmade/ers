@@ -87,7 +87,7 @@
         <ng-container *ngIf="inEditableState();then editButtons; else dismissButton"></ng-container>
 
         <ng-template #editButtons>
-          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="onSave()" *ngIf="inEditableState()"><span class="fa fa-floppy-o mr-2"></span>Save</button>
+          <button type="button" class="btn btn-success" (click)="onSave()" *ngIf="inEditableState()"><span class="fa fa-floppy-o mr-2"></span>Save</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onCancel()"><span class="fa fa-ban mr-2"></span>Cancel</button>
       </ng-template>
 
