@@ -68,6 +68,7 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 			}
 			
 			results.close();
+			stmt.close();
 			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
@@ -98,7 +99,7 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 			log.debug( String.format("%d receipts retrieved from the database", receipts.size() ) );
 			
 			results.close();
-			
+			stmt.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -141,6 +142,7 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 				log.debug( String.format("no receipt found with id:%d in the database", receipt.getId() ) );
 			}
 			
+			stmt.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -187,6 +189,7 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 				log.debug( String.format("record was not updated for receipt with ID: %d", receipt.getId() ) );
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -229,6 +232,7 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 				returns.close();
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}

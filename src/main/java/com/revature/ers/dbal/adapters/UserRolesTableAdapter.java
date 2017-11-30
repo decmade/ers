@@ -65,6 +65,7 @@ public class UserRolesTableAdapter extends AbstractTableAdapter<UserRoleInterfac
 			log.debug( String.format("successfully retrieved UserRole with id: %s", id) );
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -92,6 +93,7 @@ public class UserRolesTableAdapter extends AbstractTableAdapter<UserRoleInterfac
 			log.debug( String.format("successfully retrieved %d UserRole objects from database", roles.size() ) );
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -126,6 +128,7 @@ public class UserRolesTableAdapter extends AbstractTableAdapter<UserRoleInterfac
 				log.debug( String.format("could not delete UserRole with id: %d", role.getId() ) );
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -176,6 +179,7 @@ public class UserRolesTableAdapter extends AbstractTableAdapter<UserRoleInterfac
 				log.debug( "could not insert UserRole" );
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -209,6 +213,7 @@ public class UserRolesTableAdapter extends AbstractTableAdapter<UserRoleInterfac
 				log.debug( String.format( "could not update UserRole with ID: %d", role.getId() ) );
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}

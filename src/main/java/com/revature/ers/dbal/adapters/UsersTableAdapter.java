@@ -66,6 +66,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			}
 			
 			results.close();
+			stmt.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -101,6 +102,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			}
 			
 			results.close();
+			stmt.close();
 			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
@@ -137,6 +139,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			log.debug( String.format("%d users found with Role ID: %s in the database", users.size(), role.getId() ) );
 			
 			results.close();
+			stmt.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -164,6 +167,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			log.debug( String.format("%d users retrieved from the database", users.size() ) );
 			
 			results.close();
+			stmt.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -203,6 +207,8 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			} else {
 				log.debug( String.format("no user found with id:%d in the database", user.getId() ) );
 			}
+			
+			stmt.close();
 			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
@@ -254,6 +260,8 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			} else {
 				log.debug( String.format("record was not updated for user with ID: %d", user.getId() ) );
 			}
+			
+			stmt.close();
 			
 		} catch(SQLException e) {
 			log.error( e.getMessage() );

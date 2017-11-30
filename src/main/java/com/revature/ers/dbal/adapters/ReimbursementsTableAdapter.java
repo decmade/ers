@@ -68,6 +68,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			}
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -104,6 +105,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Author ID:%d", reimbursements.size(), user.getId() ) );
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -140,6 +142,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Resolver ID:%d", reimbursements.size(), resolver.getId() ) );
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -176,6 +179,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Receipt ID:%d", reimbursements.size(), receipt.getId() ) );
 			
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -203,6 +207,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			log.debug( String.format("successfully retrieved %d Reimbursement objects from the database", reimbursements.size() ) );
 
 			results.close();
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -236,6 +241,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 				result = true;
 				log.debug( String.format("successfully deleted Reimbursement from database with ID:%d", reimbursement.getId() ) );
 			}
+			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -294,6 +301,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 				log.debug("attempt to insert Reimbursement object failed");
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -336,6 +344,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 				log.debug( String.format("attempt to update Reimbursement object failed with ID:%d", reimbursement.getId() ) );
 			}
 			
+			stmt.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
