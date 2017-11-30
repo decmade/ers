@@ -1,4 +1,4 @@
-<div #alertContainer class="text-center font-weight-bold">
+<div #alertContainer class="text-center font-weight-bold fixed-bottom" >
     <div *ngFor="let alert of alerts" [class]="getAlertClass(alert)" role="alert">
         {{ alert.message }}
         <button type="button" class="close" aria-label="Close" (click)="remove(alert)">

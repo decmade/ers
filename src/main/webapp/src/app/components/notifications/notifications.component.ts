@@ -65,7 +65,7 @@ export class NotificationsComponent implements OnInit {
             this.remove( alert );
         }, 10000);
 
-        $(window).scrollTop(0);
+        // $(window).scrollTop(0);
     }
 
   ngOnInit() {
