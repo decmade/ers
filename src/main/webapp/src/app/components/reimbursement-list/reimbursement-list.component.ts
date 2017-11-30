@@ -9,6 +9,9 @@ import { Reimbursement, ReimbursementStatus, ReimbursementWrapper } from '../../
 import { AclRequest, AclResponse } from '../../beans/acl';
 import { User } from '../../beans/user';
 
+// pipes
+import { ReimbursementStatusPipe } from '../../pipes/reimbursement-status.pipe';
+
 // services
 import { ReimbursementsService } from '../../services/reimbursements.service';
 import { AuthorizationService } from '../../services/authorization.service';
@@ -36,6 +39,7 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
     private reimbursementListSubscription: Subscription;
     private currentUserSubscription: Subscription;
     private router: Router;
+    private reimPipe: ReimbursementStatusPipe;
     public keyword: string;
     public state: string;
     public selectedReimbursement: Reimbursement;
@@ -56,6 +60,7 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
         this.reimbursementListSubscription = new Subscription();
         this.currentUserSubscription = new Subscription();
         this.router = router;
+        this.reimPipe = new ReimbursementStatusPipe();
     }
 
     public getFilteredReimbursements(): Reimbursement[] {
@@ -77,8 +82,8 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
           });
     }
 
-    public getReimbursements(): Reimbursement[] {
-       return this.getFilteredReimbursements();
+    public getReimbursements(mode: string): Reimbursement[] {
+      return this.reimPipe.transform( this.getFilteredReimbursements(), mode);
     }
 
     public sort(field: string, desc: boolean ): void {
@@ -107,8 +112,6 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
       subject.id = 0;
       subject.state = ReimbursementWrapper.STATE_UPDATE;
       subject.author = this.user;
-
-      console.log(this.user);
 
       this.selectedReimbursement = subject;
   }

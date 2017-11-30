@@ -80,7 +80,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 	 * @return UserInterface
 	 */
 	public UserInterface getByIdentity(String identity) {
-		String sql = "SELECT * FROM users u WHERE u.identity = ?";
+		String sql = "SELECT * FROM users u WHERE lower(u.identity) = lower(?)";
 		PreparedStatement stmt = null;
 		ResultSet results = null;
 		UserInterface user = null;

@@ -35,25 +35,25 @@
 	<li class="nav-item">
 		<a class="nav-link active" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_PENDING">
 			Pending
-			<span class="badge badge-pill badge-primary ml-1">{{ (reimbursements | rStatus:STATE_SHOW_PENDING).length }}</span>
+			<span class="badge badge-pill badge-primary ml-1">{{ getReimbursements(STATE_SHOW_PENDING).length }}</span>
 		</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_APPROVED">
 			Approved
-			<span class="badge badge-pill badge-success ml-1">{{ (reimbursements | rStatus:STATE_SHOW_APPROVED).length }}</span>
+			<span class="badge badge-pill badge-success ml-1">{{ getReimbursements(STATE_SHOW_APPROVED).length }}</span>
 		</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_DENIED">
 			Denied
-			<span class="badge badge-pill badge-danger ml-1">{{ (reimbursements | rStatus:STATE_SHOW_DENIED).length }}</span>
+			<span class="badge badge-pill badge-danger ml-1">{{ getReimbursements(STATE_SHOW_DENIED).length }}</span>
 		</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#tab-all" role="tab" (click)="state = STATE_SHOW_ALL">
 			ALL
-			<span class="badge badge-pill badge-secondary ml-1">{{ reimbursements.length }}</span>
+			<span class="badge badge-pill badge-secondary ml-1">{{ getReimbursements('all').length }}</span>
 		</a>
 	</li>
 </ul>
@@ -117,7 +117,7 @@
 			</thead>
 
 			<tbody>
-				<tr *ngFor="let reimbursement of getReimbursements() | rStatus:state">
+				<tr *ngFor="let reimbursement of getReimbursements(state)">
 					<td>{{ reimbursement.id }}</td>
 					<td>{{ reimbursement.type.description }}</td>
 					<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>
