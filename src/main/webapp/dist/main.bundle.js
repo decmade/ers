@@ -706,7 +706,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/notifications/notifications.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div #alertContainer class=\"text-center font-weight-bold\">\n    <div *ngFor=\"let alert of alerts\" [class]=\"getAlertClass(alert)\" role=\"alert\">\n        {{ alert.message }}\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"remove(alert)\">\n            <span aria-hidden=\"true\">&times;</span>\n        </button>\n    </div>\n</div>\n"
+module.exports = "<div #alertContainer class=\"text-center font-weight-bold fixed-bottom\" >\n    <div *ngFor=\"let alert of alerts\" [class]=\"getAlertClass(alert)\" role=\"alert\">\n        {{ alert.message }}\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"remove(alert)\">\n            <span aria-hidden=\"true\">&times;</span>\n        </button>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -717,8 +717,6 @@ module.exports = "<div #alertContainer class=\"text-center font-weight-bold\">\n
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -730,8 +728,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 // services
-
-// jquery
 
 var NotificationsComponent = (function () {
     function NotificationsComponent(alertService) {
@@ -773,7 +769,7 @@ var NotificationsComponent = (function () {
         setTimeout(function () {
             _this.remove(alert);
         }, 10000);
-        __WEBPACK_IMPORTED_MODULE_2_jquery__(window).scrollTop(0);
+        // $(window).scrollTop(0);
     };
     NotificationsComponent.prototype.ngOnInit = function () {
         var _this = this;
