@@ -225,7 +225,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 	 */
 	private boolean updateUser(UserInterface user)
 	{
-		String sql = "UPDATE users u SET u.firstname = ?, u.lastname = ?, u.email = ?, u.roleid = ?, u.password = ?, u.identity = ? WHERE u.id = ?";
+		String sql = "UPDATE users u SET u.firstname = ?, u.lastname = ?, u.email = ?, u.roleid = ?, u.password = ?, u.secret = ?, u.identity = ? WHERE u.id = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -238,8 +238,9 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			stmt.setString(3, user.getEmail() );
 			stmt.setInt(4, user.getRoleId() );
 			stmt.setString(5, user.getPassword() );
-			stmt.setString(6,  user.getIdentity() );
-			stmt.setInt(7, user.getId() );
+			stmt.setString(6, user.getSecret() );
+			stmt.setString(7,  user.getIdentity() );
+			stmt.setInt(8, user.getId() );
 			
 			if ( stmt.executeUpdate() > 0 ) {
 				result = true;
@@ -264,7 +265,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 	 */
 	private boolean insertUser(UserInterface user)
 	{
-		String sql = "INSERT INTO users (identity, lastname, firstname, email, roleid, password) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO users (identity, lastname, firstname, email, roleid, password, secret) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		String[] returnFields = {"id"};
 		ResultSet returns = null;
 		PreparedStatement stmt = null;
@@ -280,6 +281,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			stmt.setString(4, user.getEmail() );
 			stmt.setInt(5, user.getRoleId() );
 			stmt.setString(6, user.getPassword() );
+			stmt.setString(7, user.getSecret() );
 			
 			if( stmt.executeUpdate() > 0 ) {
 				result = true;

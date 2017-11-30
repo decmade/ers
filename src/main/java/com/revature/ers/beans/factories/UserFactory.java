@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.revature.ers.beans.User;
 import com.revature.ers.beans.interfaces.UserInterface;
+import com.revature.ers.io.Encryption;
 
 /**
  * << factory, singleton >>
@@ -56,7 +57,23 @@ public class UserFactory extends AbstractFactory<UserInterface>
 					user.setIdentity( value );
 					break;
 				case "password" :
+					String secret = data.get("secret");
+					
+					/* 
+					 * if user has no secret defined already, generate one
+					 * and encrypt the password value with it
+					 */
+					if ( secret == null || secret.isEmpty() ) {
+						secret = Encryption.generateKey();
+						value = Encryption.encrypt(value, secret);
+						
+						user.setSecret(secret);
+					}
+					
 					user.setPassword( value );
+					break;
+				case "secret" :
+					user.setSecret( value);
 					break;
 				case "firstname" :
 					user.setFirstName( value );

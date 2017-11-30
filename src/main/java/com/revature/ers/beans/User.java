@@ -7,6 +7,7 @@ public class User implements UserInterface
 	private int id;
 	private String identity;
 	private String password;
+	private String secret;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -94,6 +95,16 @@ public class User implements UserInterface
 	public void setRoleId(int roleId) 
 	{
 		this.roleId = roleId;
+	}
+
+	@Override
+	public String getSecret() {
+		return secret;
+	}
+
+	@Override
+	public void setSecret(String secret) {
+		this.secret = secret;
 	}
 	
 	

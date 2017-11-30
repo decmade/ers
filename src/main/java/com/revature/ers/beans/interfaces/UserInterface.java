@@ -29,4 +29,8 @@ public interface UserInterface
 	public int getRoleId();
 	
 	public void setRoleId(int roleId);
+	
+	public String getSecret();
+
+	public void setSecret(String secret);
 }

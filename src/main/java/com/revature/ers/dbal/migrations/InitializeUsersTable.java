@@ -37,7 +37,7 @@ public class InitializeUsersTable extends AbstractMigration
 	 */
 	private void createUsersTable()
 	{
-		String sql = "CREATE TABLE users ( id INTEGER PRIMARY KEY, identity VARCHAR2(50) UNIQUE, lastname VARCHAR2(50), firstname VARCHAR2(50), email VARCHAR2(100), password VARCHAR2(200), roleid NUMBER )";
+		String sql = "CREATE TABLE users ( id INTEGER PRIMARY KEY, identity VARCHAR2(50) UNIQUE, lastname VARCHAR2(50), firstname VARCHAR2(50), email VARCHAR2(100), password VARCHAR2(200), secret VARCHAR2(200), roleid NUMBER )";
 		PreparedStatement stmt = null;
 		
 		log.debug("attempting to create Users table");

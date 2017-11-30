@@ -9,6 +9,7 @@ import com.revature.ers.beans.interfaces.ReimbursementInterface;
 import com.revature.ers.beans.interfaces.UserInterface;
 import com.revature.ers.beans.interfaces.UserRoleInterface;
 import com.revature.ers.dbal.BeanManager;
+import com.revature.ers.io.Encryption;
 
 /**
  * << decorator >>
@@ -134,6 +135,27 @@ public class UserWrapper extends AbstractWrapper<UserInterface> implements UserI
 		}
 	}
 	
+	
+	
+	
+	
+	@Override
+	public String getSecret() {
+		if ( this.hasSubject() ) {
+			return this.subject.getSecret();
+		} else {
+			return "null";
+		}
+	}
+
+	@Override
+	public void setSecret(String secret) {
+		if ( this.hasSubject() ) {
+			this.subject.setSecret( secret );
+		}
+		
+	}
+
 	/**
 	 * returns the User's name formatted as a single String
 	 * for compact displaying purposes
@@ -163,7 +185,12 @@ public class UserWrapper extends AbstractWrapper<UserInterface> implements UserI
 	 */
 	public boolean checkCredential(String credential) {
 		if ( this.hasSubject() ) {
-			return ( this.subject.getPassword().equals( credential ) );
+			String password = this.getPassword();
+			String secret = this.getSecret();
+			
+			String hash = Encryption.encrypt(credential, secret);
+			
+			return password.equals( hash );
 		} else {
 			return false;
 		}
