@@ -98,10 +98,14 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
     public onSave() {
 
-        if ( this.inReceiptUpdateState() ) {
-           this.uploadReceipt();
+        if ( this.validateObject() ) {
+            if ( this.inReceiptUpdateState() ) {
+               this.uploadReceipt();
+            } else {
+                this.saveReimbursement();
+            }
         } else {
-            this.saveReimbursement();
+            this.alertService.push('reimbursement validation failed', AlertMessage.CATEGORY_ERROR);
         }
     }
 
@@ -189,6 +193,36 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
         }
     }
 
+    private validateObject() {
+        const object = this.reimCopy;
+
+        switch (true) {
+            case ( object === null ) :
+            case ( object === undefined ) :
+                this.alertService.push('reimbursement MUST be instantiated', AlertMessage.CATEGORY_ERROR);
+                return false;
+            case ( object.amount === undefined ) :
+            case ( object.amount === 0 ) :
+                this.alertService.push('reimbursement MUST have a requested amount', AlertMessage.CATEGORY_ERROR);
+                return false;
+            case ( object.author === undefined ) :
+            case ( object.author === null ) :
+                this.alertService.push('reimbursement is not detecting you as the author', AlertMessage.CATEGORY_ERROR);
+                return false;
+            case ( object.type === undefined ) :
+            case ( object.type === null ) :
+                this.alertService.push('reimbursement MUST have a type', AlertMessage.CATEGORY_ERROR);
+                return false;
+            case ( object.description === undefined ) :
+            case ( object.description === null ) :
+            case ( object.description.trim().length === 0 ) :
+                this.alertService.push('reimbursement MUST have a description', AlertMessage.CATEGORY_ERROR);
+                return false;
+            default :
+                return true;
+        }
+    }
+
 
     ngOnInit(): void {
         this.userSubscription = this.loginService.getCurrentUser()
@@ -199,6 +233,8 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
                 this.reimCopy.receipt = receipt;
                 this.reimCopy.state = ReimbursementWrapper.STATE_UPDATE;
                 this.saveReimbursement();
+            }, (error) => {
+                this.alertService.push('receipt upload failed', AlertMessage.CATEGORY_ERROR);
             });
 
         this.savedReimbursementsSubscription = this.reimService.getSaved()

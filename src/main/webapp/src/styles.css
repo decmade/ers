@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-{
+.revature-orange, 
+.navbar-brand ,
+.navbar-brand:hover {
 	color: rgb(242, 106, 37);
 }
 
@@ -15,10 +17,16 @@
 	font-weight: 700;
 }
 
-.revature-navbar .nav-link:hover {
+.revature-navbar .nav-link:hover,
+.revature-navbar .nav-link:visitied {
 	border-bottom:2px solid rgb(242, 106, 37);
 }
 
 p {
 	text-align: justify;
 }
+
+hr.revature {
+    background-color: rgb(242, 106, 37);
+}
+

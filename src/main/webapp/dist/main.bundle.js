@@ -984,11 +984,16 @@ var ReimbursementDetailComponent = (function () {
         this.reimCopy.resolved = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm:ss.S');
     };
     ReimbursementDetailComponent.prototype.onSave = function () {
-        if (this.inReceiptUpdateState()) {
-            this.uploadReceipt();
+        if (this.validateObject()) {
+            if (this.inReceiptUpdateState()) {
+                this.uploadReceipt();
+            }
+            else {
+                this.saveReimbursement();
+            }
         }
         else {
-            this.saveReimbursement();
+            this.alertService.push('reimbursement validation failed', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
         }
     };
     ReimbursementDetailComponent.prototype.onCancel = function () {
@@ -1060,6 +1065,34 @@ var ReimbursementDetailComponent = (function () {
             this.reimCopy.status = this.getStatusById(1);
         }
     };
+    ReimbursementDetailComponent.prototype.validateObject = function () {
+        var object = this.reimCopy;
+        switch (true) {
+            case (object === null):
+            case (object === undefined):
+                this.alertService.push('reimbursement MUST be instantiated', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+                return false;
+            case (object.amount === undefined):
+            case (object.amount === 0):
+                this.alertService.push('reimbursement MUST have a requested amount', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+                return false;
+            case (object.author === undefined):
+            case (object.author === null):
+                this.alertService.push('reimbursement is not detecting you as the author', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+                return false;
+            case (object.type === undefined):
+            case (object.type === null):
+                this.alertService.push('reimbursement MUST have a type', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+                return false;
+            case (object.description === undefined):
+            case (object.description === null):
+            case (object.description.trim().length === 0):
+                this.alertService.push('reimbursement MUST have a description', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+                return false;
+            default:
+                return true;
+        }
+    };
     ReimbursementDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userSubscription = this.loginService.getCurrentUser()
@@ -1069,6 +1102,8 @@ var ReimbursementDetailComponent = (function () {
             _this.reimCopy.receipt = receipt;
             _this.reimCopy.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
             _this.saveReimbursement();
+        }, function (error) {
+            _this.alertService.push('receipt upload failed', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
         });
         this.savedReimbursementsSubscription = this.reimService.getSaved()
             .subscribe(function (reimbursement) {
@@ -1139,7 +1174,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/reimbursement-list/reimbursement-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1 class=\"display-5\">Reimbursements</h1>\n\t</div>\n\n\t<div class=\"col-md-2\">\n\t\t<button type=\"button\" class=\"btn btn-success btn-lg\" (click)=\"startNewReimbursement()\" data-toggle=\"modal\" data-target=\"#app-reimbursement-detail\">\n\t\t\t<span class=\"fa fa-plus mr-1\"></span>\n\t\t\tNew Request\n\t\t</button>\n\t</div>\n</div>\n\n<!-- Search Bar -->\n<div class=\"row mb-4\">\n\t<div class=\"col-md-12\">\n\t\t<form>\n\t\t\t<div class=\"input-group\">\n\t\t\t\t<span class=\"input-group-button\">\n\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" (click)=\"keyword = ''\">\n\t\t\t\t\t\t<span class=\"fa fa-refresh\"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</span>\n\t\t\t\t<span class=\"input-group-addon\">\n\t\t\t\t\t<span class=\"fa fa-filter\"></span>\n\t\t\t\t</span>\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"filter ...\" name=\"keyword\" [(ngModel)]=\"keyword\">\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>\n\n<!-- Nav tabs -->\n<ul class=\"nav nav-tabs\" role=\"tablist\">\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_PENDING\">\n\t\t\tPending\n\t\t\t<span class=\"badge badge-pill badge-primary ml-1\">{{ (reimbursements | rStatus:STATE_SHOW_PENDING).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_APPROVED\">\n\t\t\tApproved\n\t\t\t<span class=\"badge badge-pill badge-success ml-1\">{{ (reimbursements | rStatus:STATE_SHOW_APPROVED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_DENIED\">\n\t\t\tDenied\n\t\t\t<span class=\"badge badge-pill badge-danger ml-1\">{{ (reimbursements | rStatus:STATE_SHOW_DENIED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_ALL\">\n\t\t\tALL\n\t\t\t<span class=\"badge badge-pill badge-secondary ml-1\">{{ reimbursements.length }}</span>\n\t\t</a>\n\t</li>\n</ul>\n\n<!-- Tab panes -->\n<div class=\"tab-content\">\n\n\t<!-- ALL Reimbursements Tab (using states to change the list)-->\n\t<div class=\"tab-pane active\" id=\"tab-all\" role=\"tabpanel\">\n\t\t<table class=\"table table-striped\">\n\t\t\t<colgroup>\n\t\t\t\t<col width=\"8%\">\n\t\t\t\t<col width=\"10%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"*\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"7%\">\n\t\t\t</colgroup>\n\n\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tID\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('id', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('type.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tSubmitted\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('submitted', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tAuthor\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('author.displayName', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tStatus\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('status.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th class=\"text-right\">\n\t\t\t\t\t\t\tAmount\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('amount', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>&nbsp;</th>\n\t\t\t\t\t</tr>\n\t\t\t</thead>\n\n\t\t\t<tbody>\n\t\t\t\t<tr *ngFor=\"let reimbursement of getReimbursements() | rStatus:state\">\n\t\t\t\t\t<td>{{ reimbursement.id }}</td>\n\t\t\t\t\t<td>{{ reimbursement.type.description }}</td>\n\t\t\t\t\t<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>\n\t\t\t\t\t<td>{{ reimbursement.author.displayName }}</td>\n\t\t\t\t\t<td>{{ reimbursement.status.description }}</td>\n\t\t\t\t\t<td class=\"text-right\">{{ reimbursement.amount | currency }}</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<app-reimbursement-button [reimbursement]=\"reimbursement\" (click)=\"openDetailView(reimbursement)\" data-target=\"#app-reimbursement-detail\" data-toggle=\"modal\"></app-reimbursement-button>\n\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\n\t\t\t<tfoot>\n\t\t\t</tfoot>\n\t\t</table>\n\t</div>\n\n\t<app-reimbursement-detail [reimbursement]=\"selectedReimbursement\"></app-reimbursement-detail>\n\n</div>\n<!-- BEGIN: templates -->\n\n<!-- EMPTY FIELDS -->\n<ng-template #emptyField>\n\t<span class=\"text-center\">---</span>\n</ng-template>"
+module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1 class=\"display-5\">Reimbursements</h1>\n\t</div>\n\n\t<div class=\"col-md-2\">\n\t\t<button type=\"button\" class=\"btn btn-success btn-lg\" (click)=\"startNewReimbursement()\" data-toggle=\"modal\" data-target=\"#app-reimbursement-detail\">\n\t\t\t<span class=\"fa fa-plus mr-1\"></span>\n\t\t\tNew Request\n\t\t</button>\n\t</div>\n</div>\n\n<!-- Search Bar -->\n<div class=\"row mb-4\">\n\t<div class=\"col-md-12\">\n\t\t<form>\n\t\t\t<div class=\"input-group\">\n\t\t\t\t<span class=\"input-group-button\">\n\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" (click)=\"keyword = ''\">\n\t\t\t\t\t\t<span class=\"fa fa-refresh\"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</span>\n\t\t\t\t<span class=\"input-group-addon\">\n\t\t\t\t\t<span class=\"fa fa-filter\"></span>\n\t\t\t\t</span>\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"filter ...\" name=\"keyword\" [(ngModel)]=\"keyword\">\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>\n\n<!-- Nav tabs -->\n<ul class=\"nav nav-tabs\" role=\"tablist\">\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_PENDING\">\n\t\t\tPending\n\t\t\t<span class=\"badge badge-pill badge-primary ml-1\">{{ getReimbursements(STATE_SHOW_PENDING).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_APPROVED\">\n\t\t\tApproved\n\t\t\t<span class=\"badge badge-pill badge-success ml-1\">{{ getReimbursements(STATE_SHOW_APPROVED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_DENIED\">\n\t\t\tDenied\n\t\t\t<span class=\"badge badge-pill badge-danger ml-1\">{{ getReimbursements(STATE_SHOW_DENIED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_ALL\">\n\t\t\tALL\n\t\t\t<span class=\"badge badge-pill badge-secondary ml-1\">{{ getReimbursements('all').length }}</span>\n\t\t</a>\n\t</li>\n</ul>\n\n<!-- Tab panes -->\n<div class=\"tab-content\">\n\n\t<!-- ALL Reimbursements Tab (using states to change the list)-->\n\t<div class=\"tab-pane active\" id=\"tab-all\" role=\"tabpanel\">\n\t\t<table class=\"table table-striped\">\n\t\t\t<colgroup>\n\t\t\t\t<col width=\"8%\">\n\t\t\t\t<col width=\"10%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"*\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"7%\">\n\t\t\t</colgroup>\n\n\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tID\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('id', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('type.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tSubmitted\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('submitted', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tAuthor\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('author.displayName', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tStatus\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('status.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th class=\"text-right\">\n\t\t\t\t\t\t\tAmount\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('amount', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>&nbsp;</th>\n\t\t\t\t\t</tr>\n\t\t\t</thead>\n\n\t\t\t<tbody>\n\t\t\t\t<tr *ngFor=\"let reimbursement of getReimbursements(state)\">\n\t\t\t\t\t<td>{{ reimbursement.id }}</td>\n\t\t\t\t\t<td>{{ reimbursement.type.description }}</td>\n\t\t\t\t\t<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>\n\t\t\t\t\t<td>{{ reimbursement.author.displayName }}</td>\n\t\t\t\t\t<td>{{ reimbursement.status.description }}</td>\n\t\t\t\t\t<td class=\"text-right\">{{ reimbursement.amount | currency }}</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<app-reimbursement-button [reimbursement]=\"reimbursement\" (click)=\"openDetailView(reimbursement)\" data-target=\"#app-reimbursement-detail\" data-toggle=\"modal\"></app-reimbursement-button>\n\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\n\t\t\t<tfoot>\n\t\t\t</tfoot>\n\t\t</table>\n\t</div>\n\n\t<app-reimbursement-detail [reimbursement]=\"selectedReimbursement\"></app-reimbursement-detail>\n\n</div>\n<!-- BEGIN: templates -->\n\n<!-- EMPTY FIELDS -->\n<ng-template #emptyField>\n\t<span class=\"text-center\">---</span>\n</ng-template>"
 
 /***/ }),
 
@@ -1152,9 +1187,10 @@ module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__ = __webpack_require__("../../../../rxjs/_esm5/Subscription.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__ = __webpack_require__("../../../../../src/app/beans/reimbursement.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_reimbursements_service__ = __webpack_require__("../../../../../src/app/services/reimbursements.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_authorization_service__ = __webpack_require__("../../../../../src/app/services/authorization.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_login_service__ = __webpack_require__("../../../../../src/app/services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_reimbursement_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/reimbursement-status.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_reimbursements_service__ = __webpack_require__("../../../../../src/app/services/reimbursements.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_authorization_service__ = __webpack_require__("../../../../../src/app/services/authorization.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_login_service__ = __webpack_require__("../../../../../src/app/services/login.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1169,6 +1205,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // rxjs
 
 // beans
+
+// pipes
 
 // services
 
@@ -1190,6 +1228,7 @@ var ReimbursementListComponent = (function () {
         this.reimbursementListSubscription = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__["a" /* Subscription */]();
         this.currentUserSubscription = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__["a" /* Subscription */]();
         this.router = router;
+        this.reimPipe = new __WEBPACK_IMPORTED_MODULE_4__pipes_reimbursement_status_pipe__["a" /* ReimbursementStatusPipe */]();
     }
     ReimbursementListComponent.prototype.getFilteredReimbursements = function () {
         var _this = this;
@@ -1209,8 +1248,8 @@ var ReimbursementListComponent = (function () {
             }
         });
     };
-    ReimbursementListComponent.prototype.getReimbursements = function () {
-        return this.getFilteredReimbursements();
+    ReimbursementListComponent.prototype.getReimbursements = function (mode) {
+        return this.reimPipe.transform(this.getFilteredReimbursements(), mode);
     };
     ReimbursementListComponent.prototype.sort = function (field, desc) {
         this.reimbursements.sort(function (a, b) {
@@ -1234,7 +1273,6 @@ var ReimbursementListComponent = (function () {
         subject.id = 0;
         subject.state = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
         subject.author = this.user;
-        console.log(this.user);
         this.selectedReimbursement = subject;
     };
     ReimbursementListComponent.prototype.ngOnInit = function () {
@@ -1254,9 +1292,9 @@ var ReimbursementListComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_reimbursements_service__["a" /* ReimbursementsService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_authorization_service__["a" /* AuthorizationService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_login_service__["a" /* LoginService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_reimbursements_service__["a" /* ReimbursementsService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_authorization_service__["a" /* AuthorizationService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_login_service__["a" /* LoginService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
     ], ReimbursementListComponent);
     return ReimbursementListComponent;
