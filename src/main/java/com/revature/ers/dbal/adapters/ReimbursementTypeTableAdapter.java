@@ -65,6 +65,8 @@ public class ReimbursementTypeTableAdapter extends AbstractTableAdapter<Reimburs
 				log.debug( String.format("no ReimbursementType found with ID: %s in the database", id) );
 			}
 			
+			results.close();
+			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -93,6 +95,7 @@ public class ReimbursementTypeTableAdapter extends AbstractTableAdapter<Reimburs
 			
 			log.debug( String.format("%d ReimbursementTypes retrieved from the database", types.size() ) );
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -217,6 +220,8 @@ public class ReimbursementTypeTableAdapter extends AbstractTableAdapter<Reimburs
 					type.setId( returns.getInt(1));
 					log.debug( String.format("successfully inserted new ReimbursementType record with ID: %d", type.getId() ) );
 				}
+				
+				returns.close();
 			}
 			
 		} catch(SQLException e) {

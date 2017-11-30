@@ -66,6 +66,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 				reimbursement = this.getFactory().create( results );
 				log.debug( String.format("successfully retrieved Reimbursement from database with ID:%d", reimbursementId ) );
 			}
+			
+			results.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -100,6 +102,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			}
 			
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Author ID:%d", reimbursements.size(), user.getId() ) );
+			
+			results.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -134,6 +138,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			}
 			
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Resolver ID:%d", reimbursements.size(), resolver.getId() ) );
+			
+			results.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -168,6 +174,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			}
 			
 			log.debug( String.format("successfully retrieved %d Reimbursements from database with Receipt ID:%d", reimbursements.size(), receipt.getId() ) );
+			
+			results.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -194,6 +202,7 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 			
 			log.debug( String.format("successfully retrieved %d Reimbursement objects from the database", reimbursements.size() ) );
 
+			results.close();
 		} catch(SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -279,6 +288,8 @@ public class ReimbursementsTableAdapter extends AbstractTableAdapter<Reimburseme
 					reimbursement.setId( returns.getInt(1) );
 					result = true;
 				}
+				
+				returns.close();
 			} else {
 				log.debug("attempt to insert Reimbursement object failed");
 			}

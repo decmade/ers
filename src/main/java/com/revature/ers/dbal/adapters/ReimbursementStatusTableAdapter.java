@@ -65,6 +65,7 @@ public class ReimbursementStatusTableAdapter extends AbstractTableAdapter<Reimbu
 				log.debug( String.format("no ReimbursementStatus found with ID: %s in the database", id) );
 			}
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -93,6 +94,7 @@ public class ReimbursementStatusTableAdapter extends AbstractTableAdapter<Reimbu
 			
 			log.debug( String.format("%d ReimbursementStatuses retrieved from the database", statuses.size() ) );
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -217,6 +219,8 @@ public class ReimbursementStatusTableAdapter extends AbstractTableAdapter<Reimbu
 					status.setId( returns.getInt(1));
 					log.debug( String.format("successfully inserted new ReimbursementStatus record with ID: %d", status.getId() ) );
 				}
+				
+				returns.close();
 			}
 			
 		} catch(SQLException e) {

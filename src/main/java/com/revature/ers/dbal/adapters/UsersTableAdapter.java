@@ -65,6 +65,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 				log.debug( String.format("no user found with ID: %s in the database", id) );
 			}
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -98,6 +99,8 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			} else {
 				log.debug( String.format("no user found with Identity: %s in the database", identity) );
 			}
+			
+			results.close();
 			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
@@ -133,6 +136,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 				
 			log.debug( String.format("%d users found with Role ID: %s in the database", users.size(), role.getId() ) );
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -159,6 +163,7 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 			
 			log.debug( String.format("%d users retrieved from the database", users.size() ) );
 			
+			results.close();
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -292,6 +297,8 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 					user.setId( returns.getInt(1));
 					log.debug( String.format("successfully inserted new User record for user with ID: %d", user.getId() ) );
 				}
+				
+				returns.close();
 			}
 			
 		} catch(SQLException e) {

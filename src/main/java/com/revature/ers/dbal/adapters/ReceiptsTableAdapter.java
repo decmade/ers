@@ -67,6 +67,8 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 				log.debug( String.format("no receipt found with ID: %s in the database", id) );
 			}
 			
+			results.close();
+			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}
@@ -94,6 +96,8 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 			} 
 			
 			log.debug( String.format("%d receipts retrieved from the database", receipts.size() ) );
+			
+			results.close();
 			
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
@@ -221,6 +225,8 @@ public class ReceiptsTableAdapter extends AbstractTableAdapter<ReceiptInterface>
 					receipt.setId( returns.getInt(1));
 					log.debug( String.format("successfully inserted new Receipt record with ID: %d", receipt.getId() ) );
 				}
+				
+				returns.close();
 			}
 			
 		} catch(SQLException e) {
