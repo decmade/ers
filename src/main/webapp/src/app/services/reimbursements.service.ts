@@ -4,34 +4,39 @@ import { HttpClient } from '@angular/common/http';
 // rxjs
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 // beans
 import { Reimbursement, ReimbursementWrapper } from '../beans/reimbursement';
-import { Servlet } from '../beans/servlet';
 
 // other services
 import { AlertService, AlertMessage } from './alert.service';
+import { ApiService } from './api.service';
 
 
 @Injectable()
 export class ReimbursementsService {
 
-    private client: HttpClient;
-    private url: string;
-    private listSubject: Subject<Reimbursement[]>;
+    private http: HttpClient;
     private alertService: AlertService;
+    private apiService: ApiService
+
+    private api: string;
+    private listSubject: BehaviorSubject<Reimbursement[]>;
     private saveSubject: Subject<Reimbursement>;
+    private selectedSubject: Subject<Reimbursement>;
 
 
-    constructor(client: HttpClient, alertService: AlertService) {
-        this.client = client;
-        this.url = Servlet.getServiceUrl('reimbursements');
-        this.listSubject = new Subject();
-        this.saveSubject = new Subject();
+    constructor(httpClient: HttpClient, alertService: AlertService, apiService: ApiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
         this.alertService = alertService;
+
+        this.api = 'reimbursements';
+        this.listSubject = new BehaviorSubject([]);
+        this.saveSubject = new Subject();
+        this.selectedSubject = new Subject();
     }
-
-
 
     public save(reimbursement: Reimbursement): void {
         console.log('attempting to save new reimbursement');
@@ -48,33 +53,45 @@ export class ReimbursementsService {
     /*
     * BEGIN: observables
     */
-    public getList(): Observable<Reimbursement[]> {
-        this.getAll();
-
-        return this.listSubject;
+    public setSelected(reim: Reimbursement): void {
+        this.selectedSubject.next(reim);
     }
 
-    public getSaved() {
-        return this.saveSubject;
+    public getSelected(): Observable<Reimbursement> {
+        return this.selectedSubject.asObservable();
+    }
+
+    public getList(): Observable<Reimbursement[]> {
+        return this.listSubject.asObservable();
+    }
+
+    public clearList(): void {
+        this.listSubject.next([]);
+    }
+
+    public getSaved(): Observable<Reimbursement> {
+        return this.saveSubject.asObservable();
     }
 
 
     /*
     * BEGIN: CRUD
     */
-    private getAll(): void {
-        this.client.get<Reimbursement[]>( this.url, { withCredentials: true })
+    public getAll(): void {
+        const url = this.apiService.getApiUrl(this.api);
+
+        this.http.get<Reimbursement[]>( url, { withCredentials: true })
             .subscribe( (reimbursements) => {
-                this.listSubject.next( reimbursements );
+                this.listSubject.next(reimbursements);
             });
     }
 
-    private post(reimbursement: Reimbursement): void {
-        const url = this.url;
+    public post(reimbursement: Reimbursement): void {
+        const url = this.apiService.getApiUrl(this.api);
         const dataObject = ReimbursementWrapper.prepareForDao(reimbursement);
         const data = JSON.stringify( dataObject );
 
-        this.client.post<Reimbursement>( url, data, { withCredentials: true })
+        this.http.post<Reimbursement>( url, data, { withCredentials: true })
             .subscribe( (savedReimbursement) => {
                 this.saveSubject.next(savedReimbursement);
                 this.getAll();
@@ -82,21 +99,17 @@ export class ReimbursementsService {
             });
     }
 
-    private put(reimbursement: Reimbursement): void {
-        const url = [ this.url, reimbursement.id ].join('/');
+    public put(reimbursement: Reimbursement): void {
+        const url = this.apiService.getApiUrl(this.api, [reimbursement.id]);
         const dataObject = ReimbursementWrapper.prepareForDao(reimbursement);
         const data = JSON.stringify( dataObject );
 
-        this.client.put<Reimbursement>( url, data, { withCredentials: true })
+        this.http.put<Reimbursement>( url, data, { withCredentials: true })
             .subscribe( (updatedReimbursement) => {
                 this.saveSubject.next(updatedReimbursement);
                 this.broadcast('updated reimbursement successfully', AlertMessage.CATEGORY_SUCCESS);
             });
     }
-
-
-
-
 
     private broadcast(message: string, category: string) {
         this.alertService.push(message, category);

@@ -4,41 +4,46 @@ import { HttpClient } from '@angular/common/http';
 // rxjs
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 // beans
 import { User } from '../beans/user';
-import { Servlet } from '../beans/servlet';
 
+// services
+import { ApiService } from './api.service';
 
 @Injectable()
 export class UsersService {
-    private client: HttpClient;
-    private url: string;
-    private listSubject: Subject<User[]>;
+    private http: HttpClient;
+    private apiService: ApiService;
+    
+    private api: string;
+    private listSubject: BehaviorSubject<User[]>;
 
-    constructor(client: HttpClient) {
-      this.client = client;
-      this.url = Servlet.getServiceUrl('users');
-      this.listSubject = new Subject();
+    constructor(httpClient: HttpClient, apiService: ApiService) {
+      this.http = httpClient;
+      this.apiService = apiService;
+
+      this.api = 'users';
+      this.listSubject = new BehaviorSubject([]);
+
+      this.getAll();
     }
-
 
     /*
     * BEGIN: observables
     */
     public getList(): Observable<User[]> {
-      this.getAll();
-
       return this.listSubject;
     }
-
 
     /*
     * BEGIN: CRUD
     */
-    private getAll(): void {
-      this.client.get<User[]>( this.url, { withCredentials: true })
+    public getAll(): void {
+      const url = this.apiService.getApiUrl(this.api);
+
+      this.http.get<User[]>( url, { withCredentials: true })
         .subscribe( (users) => this.listSubject.next(users) );
     }
 

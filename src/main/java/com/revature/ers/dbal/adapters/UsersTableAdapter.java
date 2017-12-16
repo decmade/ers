@@ -65,8 +65,11 @@ public class UsersTableAdapter extends AbstractTableAdapter<UserInterface>
 				log.debug( String.format("no user found with ID: %s in the database", id) );
 			}
 			
+			log.debug( String.format("user associated with ID: %s successfully retrieved from database", id) );
 			results.close();
 			stmt.close();
+			
+	
 		} catch (SQLException e) {
 			log.error( e.getMessage() );
 		}

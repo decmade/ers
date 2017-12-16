@@ -125,7 +125,7 @@
 					<td>{{ reimbursement.status.description }}</td>
 					<td class="text-right">{{ reimbursement.amount | currency }}</td>
 					<td>
-						<app-reimbursement-button [reimbursement]="reimbursement" (click)="openDetailView(reimbursement)" data-target="#app-reimbursement-detail" data-toggle="modal"></app-reimbursement-button>
+						<app-reimbursement-button [reimbursement]="reimbursement" (click)="onSelected(reimbursement)"></app-reimbursement-button>
 
 					</td>
 				</tr>
@@ -136,7 +136,7 @@
 		</table>
 	</div>
 
-	<app-reimbursement-detail [reimbursement]="selectedReimbursement"></app-reimbursement-detail>
+	<app-reimbursement-detail></app-reimbursement-detail>
 
 </div>
 <!-- BEGIN: templates -->

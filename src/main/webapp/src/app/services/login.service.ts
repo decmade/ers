@@ -4,33 +4,46 @@ import { Routes, Router, RouterLink } from '@angular/router';
 
 // rxjs
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/share';
 
 // beans
 import { User } from '../beans/user';
-import { Servlet } from '../beans/servlet';
 
 // other services
 import { AlertService, AlertMessage } from './alert.service';
+import { ApiService } from './api.service';
+import { ReimbursementsService } from './reimbursements.service';
 
 
 @Injectable()
 export class LoginService {
-    private static USER_KEY = 'login-user';
-    private client: HttpClient;
-    private url: string;
-    private result: Observable<User>;
+    private http: HttpClient;
+    private apiService: ApiService;
     private alertService: AlertService;
-    private subject: Subject<User>;
     private router: Router;
+    private reimService: ReimbursementsService;
 
-    constructor(client: HttpClient, alertService: AlertService, router: Router) {
+    private api: string; 
+    private currentUserSubject: BehaviorSubject<User>;
+    
+
+    constructor(
+      httpClient: HttpClient, 
+      alertService: AlertService, 
+      router: Router, 
+      apiService:ApiService,
+      reimbursementService: ReimbursementsService
+    ) {
         this.router = router;
-        this.client = client;
-        this.url = Servlet.getServiceUrl('login');
+        this.http = httpClient;
         this.alertService = alertService;
-        this.subject = new Subject();
+        this.apiService = apiService;
+        this.reimService = reimbursementService;
+
+        this.api = 'login';
+        this.currentUserSubject = new BehaviorSubject(null);
+        this.get();
     }
 
     public login(identity: string, credential: string): void {
@@ -45,49 +58,61 @@ export class LoginService {
     * BEGIN: observables
     */
     public getCurrentUser(): Observable<User> {
-      this.get();
-
-      return this.subject;
+       return this.currentUserSubject;
     }
 
+    private setCurrentUser(user: User): void {
+      this.currentUserSubject.next(user);
+      
+      if ( user ) {
+        this.reimService.getAll();
+      } else {
+        this.reimService.clearList();
+      }
+    }
 
     /*
     * BEGIN: CRUD
     */
     private get(): void {
-      this.client.get<User>(this.url, { withCredentials: true })
+      const url = this.apiService.getApiUrl(this.api);
+
+      this.http.get<User>(url, { withCredentials: true })
         .subscribe( (user) => {
-          this.subject.next(user);
+            this.setCurrentUser(user);
         });
     }
 
     private post(identity: string, credential: string): void {
-      console.log('attempting to authenticate user');
-
-      const body = JSON.stringify({
+      const url = this.apiService.getApiUrl(this.api);
+      const data = JSON.stringify({
           identity: identity,
           credential: credential
        });
 
-      this.client.post<User>(this.url, body, { withCredentials: true }).subscribe( (user) => {
-        this.subject.next( user );
+       console.log('attempting to authenticate user');
 
-        this.broadcast(`user ${user.identity} authenticated successfully`, AlertMessage.CATEGORY_SUCCESS);
-      }, (error) => {
-        console.log('user could not be authenticated');
-        this.subject.next( null );
-
-        this.broadcast('authentication failed', AlertMessage.CATEGORY_ERROR);
-      });
+      this.http.post<User>(url, data, { withCredentials: true })
+        .subscribe( (user) => {
+          console.log('user authenticated successfully');
+          this.setCurrentUser(user);
+          this.broadcast(`user ${user.identity} authenticated successfully`, AlertMessage.CATEGORY_SUCCESS);
+        }, (error) => {
+          console.log('user could not be authenticated');
+          this.currentUserSubject.next(null);
+          this.reimService.clearList();
+          this.broadcast('authentication failed', AlertMessage.CATEGORY_ERROR);
+        });
     }
 
     private delete(): void {
-      this.client.delete<User>(this.url, { withCredentials: true } ).subscribe( (user) => {
-        this.subject.next( null );
+      const url = this.apiService.getApiUrl(this.api);
 
-        this.router.navigate([ 'home' ]);
-
-        this.broadcast(`user ${user.identity} signed out successfully`, AlertMessage.CATEGORY_INFO);
+      this.http.delete<User>(url, { withCredentials: true } )
+        .subscribe( (user) => {
+          this.setCurrentUser(null);
+          this.router.navigate([ 'home' ]);
+          this.broadcast(`user ${user.identity} signed out successfully`, AlertMessage.CATEGORY_INFO);
       });
     }
 

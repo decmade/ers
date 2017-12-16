@@ -37,4 +37,15 @@ export class ReimbursementWrapper extends GenericWrapper {
     public static STATUS_PENDING = 1;
     public static STATUS_APPROVED = 2;
     public static STATUS_DENIED = 3;
+
+    public static prepareForDao(reim: Reimbursement): any {
+        if ( reim.status === undefined ) {
+            reim.status = {
+                id: 1,
+                description: "",
+            }
+        }
+
+        return super.prepareForDao(reim);
+    }
 }

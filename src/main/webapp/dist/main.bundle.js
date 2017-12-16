@@ -180,17 +180,18 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_receipt_service__ = __webpack_require__("../../../../../src/app/services/receipt.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_route_permission_service__ = __webpack_require__("../../../../../src/app/services/route-permission.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_notifications_notifications_component__ = __webpack_require__("../../../../../src/app/components/notifications/notifications.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_main_navigation_main_navigation_component__ = __webpack_require__("../../../../../src/app/components/main-navigation/main-navigation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_main_page_main_page_component__ = __webpack_require__("../../../../../src/app/components/main-page/main-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_reimbursement_button_reimbursement_button_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-button/reimbursement-button.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_reimbursement_list_reimbursement_list_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_user_list_user_list_component__ = __webpack_require__("../../../../../src/app/components/user-list/user-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/components/user-detail/user-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reimbursement_detail_reimbursement_detail_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-detail/reimbursement-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pipes_reimbursement_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/reimbursement-status.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__guards_route_guard__ = __webpack_require__("../../../../../src/app/guards/route.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_notifications_notifications_component__ = __webpack_require__("../../../../../src/app/components/notifications/notifications.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_main_navigation_main_navigation_component__ = __webpack_require__("../../../../../src/app/components/main-navigation/main-navigation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_main_page_main_page_component__ = __webpack_require__("../../../../../src/app/components/main-page/main-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_reimbursement_button_reimbursement_button_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-button/reimbursement-button.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reimbursement_list_reimbursement_list_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_user_list_user_list_component__ = __webpack_require__("../../../../../src/app/components/user-list/user-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/components/user-detail/user-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reimbursement_detail_reimbursement_detail_component__ = __webpack_require__("../../../../../src/app/components/reimbursement-detail/reimbursement-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pipes_reimbursement_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/reimbursement-status.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__guards_route_guard__ = __webpack_require__("../../../../../src/app/guards/route.guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -226,6 +227,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 // components
 
 
@@ -247,17 +249,17 @@ var AppModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 // components
-                __WEBPACK_IMPORTED_MODULE_15__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_notifications_notifications_component__["a" /* NotificationsComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_main_navigation_main_navigation_component__["a" /* MainNavigationComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_main_page_main_page_component__["a" /* MainPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__components_user_list_user_list_component__["a" /* UserListComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_reimbursement_list_reimbursement_list_component__["a" /* ReimbursementListComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__components_user_detail_user_detail_component__["a" /* UserDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__components_reimbursement_detail_reimbursement_detail_component__["a" /* ReimbursementDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__components_reimbursement_button_reimbursement_button_component__["a" /* ReimbursementButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_notifications_notifications_component__["a" /* NotificationsComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_main_navigation_main_navigation_component__["a" /* MainNavigationComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_main_page_main_page_component__["a" /* MainPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__components_user_list_user_list_component__["a" /* UserListComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_reimbursement_list_reimbursement_list_component__["a" /* ReimbursementListComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_user_detail_user_detail_component__["a" /* UserDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_reimbursement_detail_reimbursement_detail_component__["a" /* ReimbursementDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_reimbursement_button_reimbursement_button_component__["a" /* ReimbursementButtonComponent */],
                 // pipes
-                __WEBPACK_IMPORTED_MODULE_24__pipes_reimbursement_status_pipe__["a" /* ReimbursementStatusPipe */],
+                __WEBPACK_IMPORTED_MODULE_25__pipes_reimbursement_status_pipe__["a" /* ReimbursementStatusPipe */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -276,11 +278,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_12__services_alert_service__["b" /* AlertService */],
                 __WEBPACK_IMPORTED_MODULE_13__services_receipt_service__["a" /* ReceiptService */],
                 __WEBPACK_IMPORTED_MODULE_14__services_route_permission_service__["a" /* RoutePermissionService */],
+                __WEBPACK_IMPORTED_MODULE_15__services_api_service__["a" /* ApiService */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* DatePipe */],
                 // guards
-                __WEBPACK_IMPORTED_MODULE_25__guards_route_guard__["a" /* RouteGuard */],
+                __WEBPACK_IMPORTED_MODULE_26__guards_route_guard__["a" /* RouteGuard */],
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_15__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -333,6 +336,15 @@ var ReimbursementWrapper = (function (_super) {
     function ReimbursementWrapper() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    ReimbursementWrapper.prepareForDao = function (reim) {
+        if (reim.status === undefined) {
+            reim.status = {
+                id: 1,
+                description: "",
+            };
+        }
+        return _super.prepareForDao.call(this, reim);
+    };
     ReimbursementWrapper.STATE_CREATE = 'create';
     ReimbursementWrapper.STATE_VIEW = 'view';
     ReimbursementWrapper.STATE_APPROVE = 'approve';
@@ -901,7 +913,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/reimbursement-detail/reimbursement-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-reimbursement-detail\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <ng-container *ngIf=\"isNew();then newTitle; else detailTitle\"></ng-container>\n        </h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"container px-3\">\n          <form>\n              <!-- ROW 1 (author, status)-->\n              <div class=\"form-group row\" *ngIf=\"isNew() === false\">\n\n                <label for=\"input-author\" class=\"col-md-2 col-form-label\"><span class=\"font-weight-bold\">Author:</span></label>\n                <div class=\"col-md-4\">\n                  <input type=\"text\" readonly id=\"input-author\" class=\"form-control-plaintext text-left\" [value]=\"reimCopy?.author?.displayName\">\n                </div>\n\n                <label for=\"input-status\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Status:</span></label>\n                <div class=\"col-md-4\">\n                  <ng-container *ngIf=\"inApproveState(); then statusSelection; else statusDisplay\"></ng-container>\n                </div>\n\n              </div>\n\n              <!-- ROW 2 (submitted, resolved)-->\n              <div class=\"form-group row\" *ngIf=\"isNew() === false\">\n                <label for=\"input-submitted\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Submitted:</span></label>\n                <div class=\"col-md-4\">\n                  <input type=\"text\" readonly id=\"input-submitted\" class=\"form-control-plaintext text-left\" [value]=\"reimCopy.submitted | date:'MM/dd/yyyy hh:mm a'\">\n                </div>\n\n                <ng-container *ngIf=\"inEditableState() === false && reimCopy.resolved !== 'null'; then displayResolvedDate\"></ng-container>\n\n              </div>\n\n              <!-- ROW 3 (type, resolver)-->\n              <div class=\"form-group row\">\n                <label for=\"input-type\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Type:</span></label>\n                <div class=\"col-md-4\">\n                  <ng-container *ngIf=\"inUpdateState(); then typeSelection; else typeDisplay\"></ng-container>\n                </div>\n\n                <!-- show resolver if the request has been processed -->\n                <ng-container *ngIf=\"inEditableState(); then hideResolver; else displayResolver\"></ng-container>\n              </div>\n\n              <!-- ROW 4 (amount)-->\n              <div class=\"form-group row\">\n                <label for=\"input-amount\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Amount:</span></label>\n                <div class=\"col-md-4\">\n                   <div class=\"input-group\">\n                    <span class=\"input-group-addon\"><span class=\"fa fa-usd\"></span></span>\n                    <input type=\"text\" [readonly]=\"inUpdateState() === false\" id=\"input-submitted\" class=\"form-control text-left\" name=\"amount\" [ngModel]=\"reimCopy.amount | number:'1.2-2'\" [ngModelOptions]=\"{updateOn:'blur'}\" (ngModelChange)=\"reimCopy.amount = $event\">\n                  </div>\n                </div>\n\n                <div class=\"col-md-6\"></div>\n              </div>\n\n\n              <!-- ROW 5 (description label)-->\n              <div class=\"form-group row\">\n                <label for=\"input-description\" class=\"col-md-10 col-form-label\"><span class=\"font-weight-bold\">Description:</span></label>\n              </div>\n\n              <!-- ROW 6 description-->\n              <div class=\"form-group row\">\n                <div class=\"col-md-12\">\n                  <textarea class=\"form-control\" name=\"input-description\" rows=\"5\" [readonly]=\"inUpdateState() === false\" [(ngModel)]=\"reimCopy.description\"></textarea>\n              </div>\n              </div>\n\n              <!-- ROW 7 receipt -->\n              <div #reciptControl class=\"form-group row\">\n                <ng-container *ngIf=\"inReceiptUpdateState(); then uploadReceipt; else displayReceipt\"></ng-container>\n              </div>\n          </form>\n\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <ng-container *ngIf=\"inEditableState();then editButtons; else dismissButton\"></ng-container>\n\n        <ng-template #editButtons>\n          <button type=\"button\" class=\"btn btn-success\" (click)=\"onSave()\" *ngIf=\"inEditableState()\"><span class=\"fa fa-floppy-o mr-2\"></span>Save</button>\n          <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" (click)=\"onCancel()\"><span class=\"fa fa-ban mr-2\"></span>Cancel</button>\n      </ng-template>\n\n      <ng-template #dismissButton>\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" (click)=\"onCancel()\"><span class=\"fa fa-times mr-2\"></span>Close</button>\n      </ng-template>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- BEGIN: templates -->\n\n<!-- TITLE -->\n<ng-template #detailTitle>\n  Reimbursement Detail&nbsp;[ {{ reimCopy.id }} ]\n</ng-template>\n\n<ng-template #newTitle>\n  Submit A New Reimbursement\n</ng-template>\n\n<!-- STATUS-->\n<ng-template #statusSelection>\n  <select #reimStatus id=\"input-status\" class=\"custom-select\" (change)=\"onStatusSelect( reimStatus.value )\">\n    <option *ngFor=\"let status of reimStatuses\" [value]=\"status.id\" [selected]=\"status.id === reimCopy?.status?.id\">\n      {{ status.description }}\n    </option>\n  </select>\n</ng-template>\n\n<ng-template #statusDisplay>\n    <input type=\"text\" readonly id=\"input-status\" class=\"form-control-plaintext\" [value]=\"reimCopy?.status?.description\">\n</ng-template>\n\n\n<!-- TYPE -->\n<ng-template #typeSelection>\n  <select #reimType id=\"input-type\" class=\"custom-select\" (change)=\"onTypeSelect( reimType.value )\">\n    <option *ngFor=\"let type of reimTypes\" [value]=\"type.id\" [selected]=\"type.id === reimCopy?.type?.id\">\n      {{ type.description }}\n    </option>\n  </select>\n</ng-template>\n\n<ng-template #typeDisplay>\n  <input type=\"text\" readonly id=\"input-type\" class=\"form-control-plaintext\" [value]=\"reimCopy?.type?.description\">\n</ng-template>\n\n\n<!-- RESOLVER -->\n<ng-template #displayResolver>\n  <label for=\"input-resolver\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Resolver:</span></label>\n  <div class=\"col-md-4\">\n    <input id=\"input-resolver\" type=\"text\" readonly class=\"form-control-plaintext\" [value]=\"reimCopy?.resolver?.displayName\">\n  </div>\n</ng-template>\n\n<ng-template #hideResolver>\n  <div class=\"col-md-6\"></div>\n</ng-template>\n\n\n<!-- RESOLVED DATE -->\n<ng-template #displayResolvedDate>\n  <label for=\"input-resolved\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Resolved:</span></label>\n  <div class=\"col-md-4\">\n    <input type=\"text\" readonly id=\"input-resolved\" class=\"form-control-plaintext text-left\" [value]=\"reimCopy.resolved | date:'MM/dd/yyyy hh:mm a'\">\n  </div>\n</ng-template>\n\n\n<!-- RECEIPT -->\n<ng-template #displayReceipt>\n  <div class=\"col-md-12 text-center\">\n    <ng-container *ngIf=\"inUpdateState();then showButtonGroup; else showViewButton\"></ng-container>\n\n      <ng-template #showButtonGroup>\n        <div class=\"btn-group\">\n          <a class=\"btn btn-lg btn-primary\" target=\"blank\" [href]=\"getReceiptUrl()\">\n            <span class=\"fa fa-file-o mr-1\"></span>\n            View Receipt\n          </a>\n          <button class=\"btn btn-primary btn-lg\" (click)=\"setReceiptUpdateState()\"><span class=\"fa fa-pencil\"></span></button>\n        </div>\n      </ng-template>\n\n      <ng-template #showViewButton>\n        <a class=\"btn btn-lg btn-primary\" target=\"blank\" [href]=\"getReceiptUrl()\">\n          <span class=\"fa fa-file-o mr-1\"></span>\n          View Receipt\n        </a>\n      </ng-template>\n  </div>\n</ng-template>\n\n<ng-template #uploadReceipt>\n    <label for=\"input-receipt\" class=\"col-form-label col-md-3\"><span class=\"font-weight-bold\">Upload Receipt:</span></label>\n    \n    <div class=\"col-md-9\">\n      <input #receiptUpload type=\"file\" id=\"input-receipt\" class=\"form-control\">\n    </div>\n</ng-template>"
+module.exports = "<div #reimModal id=\"app-reimbursement-detail\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <ng-container *ngIf=\"isNew();then newTitle; else detailTitle\"></ng-container>\n        </h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"container px-3\">\n          <form #reimForm>\n              <!-- ROW 1 (author, status)-->\n              <div class=\"form-group row\" *ngIf=\"isNew() === false\">\n\n                <label for=\"input-author\" class=\"col-md-2 col-form-label\"><span class=\"font-weight-bold\">Author:</span></label>\n                <div class=\"col-md-4\">\n                  <input type=\"text\" readonly id=\"input-author\" class=\"form-control-plaintext text-left\" [value]=\"reimbursement?.author?.displayName\">\n                </div>\n\n                <label for=\"input-status\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Status:</span></label>\n                <div class=\"col-md-4\">\n                  <ng-container *ngIf=\"inApproveState(); then statusSelection; else statusDisplay\"></ng-container>\n                </div>\n\n              </div>\n\n              <!-- ROW 2 (submitted, resolved)-->\n              <div class=\"form-group row\" *ngIf=\"isNew() === false\">\n                <label for=\"input-submitted\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Submitted:</span></label>\n                <div class=\"col-md-4\">\n                  <input type=\"text\" readonly id=\"input-submitted\" class=\"form-control-plaintext text-left\" [value]=\"reimbursement.submitted | date:'MM/dd/yyyy hh:mm a'\">\n                </div>\n\n                <ng-container *ngIf=\"inEditableState() === false && reimbursement.resolved !== 'null'; then displayResolvedDate\"></ng-container>\n\n              </div>\n\n              <!-- ROW 3 (type, resolver)-->\n              <div class=\"form-group row\">\n                <label for=\"input-type\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Type:</span></label>\n                <div class=\"col-md-4\">\n                  <ng-container *ngIf=\"inUpdateState(); then typeSelection; else typeDisplay\"></ng-container>\n                </div>\n\n                <!-- show resolver if the request has been processed -->\n                <ng-container *ngIf=\"inEditableState(); then hideResolver; else displayResolver\"></ng-container>\n              </div>\n\n              <!-- ROW 4 (amount)-->\n              <div class=\"form-group row\">\n                <label for=\"input-amount\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Amount:</span></label>\n                <div class=\"col-md-4\">\n                   <div class=\"input-group\">\n                    <span class=\"input-group-addon\"><span class=\"fa fa-usd\"></span></span>\n                    <input required type=\"text\" [readonly]=\"inUpdateState() === false\" id=\"input-submitted\" class=\"form-control text-left\" name=\"amount\" [ngModel]=\"reimbursement.amount | number:'1.2-2'\" [ngModelOptions]=\"{updateOn:'blur'}\" (ngModelChange)=\"reimbursement.amount = $event\">\n                    <div class=\"invalid-feedback\">Please enter the amount.</div>\n                  </div>\n                </div>\n\n                <div class=\"col-md-6\"></div>\n              </div>\n\n\n              <!-- ROW 5 (description label)-->\n              <div class=\"form-group row\">\n                <label for=\"input-description\" class=\"col-md-10 col-form-label\"><span class=\"font-weight-bold\">Description:</span></label>\n              </div>\n\n              <!-- ROW 6 description-->\n              <div class=\"form-group row\">\n                <div class=\"col-md-12\">\n                  <textarea required class=\"form-control\" name=\"input-description\" rows=\"5\" [readonly]=\"inUpdateState() === false\" [(ngModel)]=\"reimbursement.description\"></textarea>\n                  <div class=\"invalid-feedback\">Please provide a description.</div>\n              </div>\n              </div>\n\n              <!-- ROW 7 receipt -->\n              <div #reciptControl class=\"form-group row\">\n                <ng-container *ngIf=\"inReceiptUpdateState(); then uploadReceipt; else displayReceipt\"></ng-container>\n              </div>\n          </form>\n\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <ng-container *ngIf=\"inEditableState();then editButtons; else dismissButton\"></ng-container>\n\n        <ng-template #editButtons>\n          <button type=\"button\" class=\"btn btn-success\" (click)=\"onSave()\" *ngIf=\"inEditableState()\"><span class=\"fa fa-floppy-o mr-2\"></span>Save</button>\n          <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" (click)=\"onCancel()\"><span class=\"fa fa-ban mr-2\"></span>Cancel</button>\n      </ng-template>\n\n      <ng-template #dismissButton>\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" (click)=\"onCancel()\"><span class=\"fa fa-times mr-2\"></span>Close</button>\n      </ng-template>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- BEGIN: templates -->\n\n<!-- TITLE -->\n<ng-template #detailTitle>\n  Reimbursement Detail&nbsp;[ {{ reimbursement.id }} ]\n</ng-template>\n\n<ng-template #newTitle>\n  Submit A New Reimbursement\n</ng-template>\n\n<!-- STATUS-->\n<ng-template #statusSelection>\n  <select #reimStatus required id=\"input-status\" class=\"custom-select\" (change)=\"onStatusSelect(reimStatus.value)\">\n    <option *ngFor=\"let status of reimStatuses\" [value]=\"status.id\" [selected]=\"status.id === reimbursement?.status?.id\" >\n      {{ status.description }}\n    </option>\n  </select>\n  <div class=\"invalid-feedback\">Status is not detected.</div>\n</ng-template>\n\n<ng-template #statusDisplay>\n    <input type=\"text\" readonly id=\"input-status\" class=\"form-control-plaintext\" [value]=\"reimbursement?.status?.description\">\n</ng-template>\n\n\n<!-- TYPE -->\n<ng-template #typeSelection>\n  <select #reimType required id=\"input-type\" class=\"custom-select\" (change)=\"onTypeSelect( reimType.value )\">\n    <option *ngFor=\"let type of reimTypes\" [value]=\"type.id\" [selected]=\"type.id === reimbursement?.type?.id\">\n      {{ type.description }}\n    </option>\n  </select>\n  <div class=\"invalid-feedback\">Please select a type.</div>\n</ng-template>\n\n<ng-template #typeDisplay>\n  <input type=\"text\" readonly id=\"input-type\" class=\"form-control-plaintext\" [value]=\"reimbursement?.type?.description\">\n</ng-template>\n\n\n<!-- RESOLVER -->\n<ng-template #displayResolver>\n  <label for=\"input-resolver\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Resolver:</span></label>\n  <div class=\"col-md-4\">\n    <input id=\"input-resolver\" type=\"text\" readonly class=\"form-control-plaintext\" [value]=\"reimbursement?.resolver?.displayName\">\n  </div>\n</ng-template>\n\n<ng-template #hideResolver>\n  <div class=\"col-md-6\"></div>\n</ng-template>\n\n\n<!-- RESOLVED DATE -->\n<ng-template #displayResolvedDate>\n  <label for=\"input-resolved\" class=\"col-form-label col-md-2\"><span class=\"font-weight-bold\">Resolved:</span></label>\n  <div class=\"col-md-4\">\n    <input type=\"text\" readonly id=\"input-resolved\" class=\"form-control-plaintext text-left\" [value]=\"reimbursement.resolved | date:'MM/dd/yyyy hh:mm a'\">\n  </div>\n</ng-template>\n\n\n<!-- RECEIPT -->\n<ng-template #displayReceipt>\n  <div class=\"col-md-12 text-center\">\n    <ng-container *ngIf=\"inUpdateState();then showButtonGroup; else showViewButton\"></ng-container>\n\n      <ng-template #showButtonGroup>\n        <div class=\"btn-group\">\n          <a class=\"btn btn-lg btn-primary\" target=\"blank\" [href]=\"getReceiptUrl()\">\n            <span class=\"fa fa-file-o mr-1\"></span>\n            View Receipt\n          </a>\n          <button class=\"btn btn-primary btn-lg\" (click)=\"setReceiptUpdateState()\"><span class=\"fa fa-pencil\"></span></button>\n        </div>\n      </ng-template>\n\n      <ng-template #showViewButton>\n        <a class=\"btn btn-lg btn-primary\" target=\"blank\" [href]=\"getReceiptUrl()\">\n          <span class=\"fa fa-file-o mr-1\"></span>\n          View Receipt\n        </a>\n      </ng-template>\n  </div>\n</ng-template>\n\n<ng-template #uploadReceipt>\n    <label for=\"input-receipt\" class=\"col-form-label col-md-3\"><span class=\"font-weight-bold\">Upload Receipt:</span></label>\n    \n    <div class=\"col-md-9\">\n      <input #receiptUpload required type=\"file\" id=\"input-receipt\" class=\"form-control\">\n      <div class=\"invalid-feedback\">Please upload a receipt.</div>\n    </div>\n</ng-template>"
 
 /***/ }),
 
@@ -952,8 +964,8 @@ var ReimbursementDetailComponent = (function () {
         this.reimTypes = [];
         this.reimStatuses = [];
         this.datePipe = datePipe;
-        this.cloneObject();
         this.reimbursement = new __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */]();
+        this.reimCopy = new __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */]();
     }
     ReimbursementDetailComponent.prototype.getTypeClass = function () {
         return {
@@ -971,16 +983,17 @@ var ReimbursementDetailComponent = (function () {
     ReimbursementDetailComponent.prototype.onTypeSelect = function (id) {
         var _this = this;
         this.reimTypeService.get(id).subscribe(function (type) {
-            _this.reimCopy.type = type;
+            _this.reimbursement.type = type;
         });
     };
     ReimbursementDetailComponent.prototype.onStatusSelect = function (statusId) {
-        this.reimCopy.status = this.getStatusById(Number(statusId));
-        this.reimCopy.resolver = this.user;
-        this.reimCopy.resolved = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm:ss.S');
+        this.reimbursement.status = this.getStatusById(Number(statusId));
+        this.reimbursement.resolver = this.user;
+        this.reimbursement.resolved = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm:ss.S');
+        console.log(this.reimbursement);
     };
     ReimbursementDetailComponent.prototype.onSave = function () {
-        if (this.validateObject()) {
+        if (this.validateForm()) {
             if (this.inReceiptUpdateState()) {
                 this.uploadReceipt();
             }
@@ -993,7 +1006,7 @@ var ReimbursementDetailComponent = (function () {
         }
     };
     ReimbursementDetailComponent.prototype.onCancel = function () {
-        this.cloneObject();
+        this.unPark();
     };
     ReimbursementDetailComponent.prototype.inUpdateState = function () {
         return (this.reimbursement.state === __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE);
@@ -1013,7 +1026,7 @@ var ReimbursementDetailComponent = (function () {
     };
     ReimbursementDetailComponent.prototype.inReceiptUpdateState = function () {
         switch (true) {
-            case (this.reimCopy.state === __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE_RECEIPT):
+            case (this.reimbursement.state === __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE_RECEIPT):
             case (this.isNew()):
                 return true;
             default:
@@ -1022,18 +1035,18 @@ var ReimbursementDetailComponent = (function () {
     };
     ReimbursementDetailComponent.prototype.isNew = function () {
         switch (true) {
-            case (this.reimCopy === null):
-            case (this.reimCopy === undefined):
+            case (this.reimbursement === null):
+            case (this.reimbursement === undefined):
                 return false;
-            case (this.reimCopy.id === 0):
-            case (this.reimCopy.author === undefined):
+            case (this.reimbursement.id === 0):
+            case (this.reimbursement.author === undefined):
                 return true;
             default:
                 return false;
         }
     };
     ReimbursementDetailComponent.prototype.setReceiptUpdateState = function () {
-        this.reimCopy.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE_RECEIPT;
+        this.reimbursement.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE_RECEIPT;
     };
     ReimbursementDetailComponent.prototype.uploadReceipt = function () {
         var fileBrowser = this.receiptUpload.nativeElement;
@@ -1047,7 +1060,13 @@ var ReimbursementDetailComponent = (function () {
         }
     };
     ReimbursementDetailComponent.prototype.saveReimbursement = function () {
-        this.reimService.save(this.reimCopy);
+        this.reimService.save(this.reimbursement);
+    };
+    ReimbursementDetailComponent.prototype.setReimbursement = function (reim) {
+        var modal = $(this.modal.nativeElement);
+        this.reimbursement = reim;
+        this.park();
+        modal.modal('show');
     };
     ReimbursementDetailComponent.prototype.getTypeById = function (id) {
         return this.reimTypes.filter(function (rType) { return rType.id === id; })[0];
@@ -1055,17 +1074,24 @@ var ReimbursementDetailComponent = (function () {
     ReimbursementDetailComponent.prototype.getStatusById = function (id) {
         return this.reimStatuses.filter(function (rStatus) { return rStatus.id === id; })[0];
     };
-    ReimbursementDetailComponent.prototype.cloneObject = function () {
-        this.reimCopy = new __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */]();
-        __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].copy(this.reimbursement, this.reimCopy);
-        if (this.isNew()) {
-            this.reimCopy.author = this.user;
-            this.reimCopy.type = this.reimTypes[0];
-            this.reimCopy.status = this.getStatusById(1);
+    ReimbursementDetailComponent.prototype.park = function () {
+        Object.assign(this.reimCopy, this.reimbursement);
+    };
+    ReimbursementDetailComponent.prototype.unPark = function () {
+        Object.assign(this.reimbursement, this.reimCopy);
+    };
+    ReimbursementDetailComponent.prototype.validateForm = function () {
+        var form = this.form.nativeElement;
+        switch (true) {
+            case (form.checkValidity() === false):
+                $(form).addClass('was-validated');
+                return false;
+            default:
+                return true;
         }
     };
     ReimbursementDetailComponent.prototype.validateObject = function () {
-        var object = this.reimCopy;
+        var object = this.reimbursement;
         switch (true) {
             case (object === null):
             case (object === undefined):
@@ -1094,44 +1120,48 @@ var ReimbursementDetailComponent = (function () {
     };
     ReimbursementDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.selectedReimbursementSubscription = this.reimService.getSelected()
+            .subscribe(function (reim) { return _this.setReimbursement(reim); });
         this.userSubscription = this.loginService.getCurrentUser()
             .subscribe(function (user) { return _this.user = user; });
         this.savedReceiptsSubscription = this.receiptService.getSaved()
             .subscribe(function (receipt) {
-            _this.reimCopy.receipt = receipt;
-            _this.reimCopy.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
+            _this.reimbursement.receipt = receipt;
+            _this.reimbursement.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
             _this.saveReimbursement();
         }, function (error) {
             _this.alertService.push('receipt upload failed', __WEBPACK_IMPORTED_MODULE_4__services_alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
         });
         this.savedReimbursementsSubscription = this.reimService.getSaved()
             .subscribe(function (reimbursement) {
-            __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].copy(reimbursement, _this.reimbursement);
-            _this.cloneObject();
-            $('#app-reimbursement-detail').modal('hide');
+            var modal = $(_this.modal.nativeElement);
+            Object.assign(_this.reimbursement, reimbursement);
+            modal.modal('hide');
         });
         this.reimbursementStatusListSubscription = this.reimStatusService.getList()
             .subscribe(function (statuses) { return _this.reimStatuses = statuses; });
         this.reimbursementTypeListSubscription = this.reimTypeService.getList()
             .subscribe(function (types) { return _this.reimTypes = types; });
     };
-    ReimbursementDetailComponent.prototype.ngOnChanges = function () {
-        this.cloneObject();
-    };
     ReimbursementDetailComponent.prototype.ngOnDestroy = function () {
+        this.selectedReimbursementSubscription.unsubscribe();
         this.userSubscription.unsubscribe();
         this.savedReceiptsSubscription.unsubscribe();
         this.reimbursementStatusListSubscription.unsubscribe();
         this.reimbursementTypeListSubscription.unsubscribe();
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */])
-    ], ReimbursementDetailComponent.prototype, "reimbursement", void 0);
-    __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('receiptUpload'),
-        __metadata("design:type", Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], ReimbursementDetailComponent.prototype, "receiptUpload", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('reimForm'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], ReimbursementDetailComponent.prototype, "form", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('reimModal'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], ReimbursementDetailComponent.prototype, "modal", void 0);
     ReimbursementDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-reimbursement-detail',
@@ -1174,7 +1204,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/reimbursement-list/reimbursement-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1 class=\"display-5\">Reimbursements</h1>\n\t</div>\n\n\t<div class=\"col-md-2\">\n\t\t<button type=\"button\" class=\"btn btn-success btn-lg\" (click)=\"startNewReimbursement()\" data-toggle=\"modal\" data-target=\"#app-reimbursement-detail\">\n\t\t\t<span class=\"fa fa-plus mr-1\"></span>\n\t\t\tNew Request\n\t\t</button>\n\t</div>\n</div>\n\n<!-- Search Bar -->\n<div class=\"row mb-4\">\n\t<div class=\"col-md-12\">\n\t\t<form>\n\t\t\t<div class=\"input-group\">\n\t\t\t\t<span class=\"input-group-button\">\n\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" (click)=\"keyword = ''\">\n\t\t\t\t\t\t<span class=\"fa fa-refresh\"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</span>\n\t\t\t\t<span class=\"input-group-addon\">\n\t\t\t\t\t<span class=\"fa fa-filter\"></span>\n\t\t\t\t</span>\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"filter ...\" name=\"keyword\" [(ngModel)]=\"keyword\">\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>\n\n<!-- Nav tabs -->\n<ul class=\"nav nav-tabs\" role=\"tablist\">\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_PENDING\">\n\t\t\tPending\n\t\t\t<span class=\"badge badge-pill badge-primary ml-1\">{{ getReimbursements(STATE_SHOW_PENDING).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_APPROVED\">\n\t\t\tApproved\n\t\t\t<span class=\"badge badge-pill badge-success ml-1\">{{ getReimbursements(STATE_SHOW_APPROVED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_DENIED\">\n\t\t\tDenied\n\t\t\t<span class=\"badge badge-pill badge-danger ml-1\">{{ getReimbursements(STATE_SHOW_DENIED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_ALL\">\n\t\t\tALL\n\t\t\t<span class=\"badge badge-pill badge-secondary ml-1\">{{ getReimbursements('all').length }}</span>\n\t\t</a>\n\t</li>\n</ul>\n\n<!-- Tab panes -->\n<div class=\"tab-content\">\n\n\t<!-- ALL Reimbursements Tab (using states to change the list)-->\n\t<div class=\"tab-pane active\" id=\"tab-all\" role=\"tabpanel\">\n\t\t<table class=\"table table-striped\">\n\t\t\t<colgroup>\n\t\t\t\t<col width=\"8%\">\n\t\t\t\t<col width=\"10%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"*\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"7%\">\n\t\t\t</colgroup>\n\n\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tID\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('id', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('type.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tSubmitted\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('submitted', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tAuthor\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('author.displayName', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tStatus\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('status.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th class=\"text-right\">\n\t\t\t\t\t\t\tAmount\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('amount', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>&nbsp;</th>\n\t\t\t\t\t</tr>\n\t\t\t</thead>\n\n\t\t\t<tbody>\n\t\t\t\t<tr *ngFor=\"let reimbursement of getReimbursements(state)\">\n\t\t\t\t\t<td>{{ reimbursement.id }}</td>\n\t\t\t\t\t<td>{{ reimbursement.type.description }}</td>\n\t\t\t\t\t<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>\n\t\t\t\t\t<td>{{ reimbursement.author.displayName }}</td>\n\t\t\t\t\t<td>{{ reimbursement.status.description }}</td>\n\t\t\t\t\t<td class=\"text-right\">{{ reimbursement.amount | currency }}</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<app-reimbursement-button [reimbursement]=\"reimbursement\" (click)=\"openDetailView(reimbursement)\" data-target=\"#app-reimbursement-detail\" data-toggle=\"modal\"></app-reimbursement-button>\n\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\n\t\t\t<tfoot>\n\t\t\t</tfoot>\n\t\t</table>\n\t</div>\n\n\t<app-reimbursement-detail [reimbursement]=\"selectedReimbursement\"></app-reimbursement-detail>\n\n</div>\n<!-- BEGIN: templates -->\n\n<!-- EMPTY FIELDS -->\n<ng-template #emptyField>\n\t<span class=\"text-center\">---</span>\n</ng-template>"
+module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1 class=\"display-5\">Reimbursements</h1>\n\t</div>\n\n\t<div class=\"col-md-2\">\n\t\t<button type=\"button\" class=\"btn btn-success btn-lg\" (click)=\"startNewReimbursement()\" data-toggle=\"modal\" data-target=\"#app-reimbursement-detail\">\n\t\t\t<span class=\"fa fa-plus mr-1\"></span>\n\t\t\tNew Request\n\t\t</button>\n\t</div>\n</div>\n\n<!-- Search Bar -->\n<div class=\"row mb-4\">\n\t<div class=\"col-md-12\">\n\t\t<form>\n\t\t\t<div class=\"input-group\">\n\t\t\t\t<span class=\"input-group-button\">\n\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" (click)=\"keyword = ''\">\n\t\t\t\t\t\t<span class=\"fa fa-refresh\"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</span>\n\t\t\t\t<span class=\"input-group-addon\">\n\t\t\t\t\t<span class=\"fa fa-filter\"></span>\n\t\t\t\t</span>\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"filter ...\" name=\"keyword\" [(ngModel)]=\"keyword\">\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>\n\n<!-- Nav tabs -->\n<ul class=\"nav nav-tabs\" role=\"tablist\">\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_PENDING\">\n\t\t\tPending\n\t\t\t<span class=\"badge badge-pill badge-primary ml-1\">{{ getReimbursements(STATE_SHOW_PENDING).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_APPROVED\">\n\t\t\tApproved\n\t\t\t<span class=\"badge badge-pill badge-success ml-1\">{{ getReimbursements(STATE_SHOW_APPROVED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_DENIED\">\n\t\t\tDenied\n\t\t\t<span class=\"badge badge-pill badge-danger ml-1\">{{ getReimbursements(STATE_SHOW_DENIED).length }}</span>\n\t\t</a>\n\t</li>\n\t<li class=\"nav-item\">\n\t\t<a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-all\" role=\"tab\" (click)=\"state = STATE_SHOW_ALL\">\n\t\t\tALL\n\t\t\t<span class=\"badge badge-pill badge-secondary ml-1\">{{ getReimbursements('all').length }}</span>\n\t\t</a>\n\t</li>\n</ul>\n\n<!-- Tab panes -->\n<div class=\"tab-content\">\n\n\t<!-- ALL Reimbursements Tab (using states to change the list)-->\n\t<div class=\"tab-pane active\" id=\"tab-all\" role=\"tabpanel\">\n\t\t<table class=\"table table-striped\">\n\t\t\t<colgroup>\n\t\t\t\t<col width=\"8%\">\n\t\t\t\t<col width=\"10%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"*\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"15%\">\n\t\t\t\t<col width=\"7%\">\n\t\t\t</colgroup>\n\n\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tID\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('id', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tType\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('type.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tSubmitted\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('submitted', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tAuthor\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('author.displayName', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>\n\t\t\t\t\t\t\tStatus\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('status.description', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th class=\"text-right\">\n\t\t\t\t\t\t\tAmount\n\t\t\t\t\t\t\t<button class=\"btn btn-default btn-sm ml-1\" (click)=\"sort('amount', false)\">\n\t\t\t\t\t\t\t\t<span class=\"fa fa-sort-amount-asc\"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th>&nbsp;</th>\n\t\t\t\t\t</tr>\n\t\t\t</thead>\n\n\t\t\t<tbody>\n\t\t\t\t<tr *ngFor=\"let reimbursement of getReimbursements(state)\">\n\t\t\t\t\t<td>{{ reimbursement.id }}</td>\n\t\t\t\t\t<td>{{ reimbursement.type.description }}</td>\n\t\t\t\t\t<td>{{ reimbursement.submitted | date:'MM/dd/yyyy'}}</td>\n\t\t\t\t\t<td>{{ reimbursement.author.displayName }}</td>\n\t\t\t\t\t<td>{{ reimbursement.status.description }}</td>\n\t\t\t\t\t<td class=\"text-right\">{{ reimbursement.amount | currency }}</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<app-reimbursement-button [reimbursement]=\"reimbursement\" (click)=\"onSelected(reimbursement)\"></app-reimbursement-button>\n\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\n\t\t\t<tfoot>\n\t\t\t</tfoot>\n\t\t</table>\n\t</div>\n\n\t<app-reimbursement-detail></app-reimbursement-detail>\n\n</div>\n<!-- BEGIN: templates -->\n\n<!-- EMPTY FIELDS -->\n<ng-template #emptyField>\n\t<span class=\"text-center\">---</span>\n</ng-template>"
 
 /***/ }),
 
@@ -1185,12 +1215,11 @@ module.exports = "<div class=\"row mb-4\">\n\t<div class=\"col-md-10\">\n\t\t<h1
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReimbursementListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__ = __webpack_require__("../../../../rxjs/_esm5/Subscription.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__ = __webpack_require__("../../../../../src/app/beans/reimbursement.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_reimbursement_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/reimbursement-status.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_reimbursements_service__ = __webpack_require__("../../../../../src/app/services/reimbursements.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_authorization_service__ = __webpack_require__("../../../../../src/app/services/authorization.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_login_service__ = __webpack_require__("../../../../../src/app/services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__ = __webpack_require__("../../../../../src/app/beans/reimbursement.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_reimbursement_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/reimbursement-status.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_reimbursements_service__ = __webpack_require__("../../../../../src/app/services/reimbursements.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_authorization_service__ = __webpack_require__("../../../../../src/app/services/authorization.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_login_service__ = __webpack_require__("../../../../../src/app/services/login.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1201,8 +1230,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-// rxjs
 
 // beans
 
@@ -1224,11 +1251,9 @@ var ReimbursementListComponent = (function () {
         this.loginService = loginService;
         this.keyword = '';
         this.state = 'pending';
-        this.selectedReimbursement = new __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["a" /* Reimbursement */]();
-        this.reimbursementListSubscription = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__["a" /* Subscription */]();
-        this.currentUserSubscription = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subscription__["a" /* Subscription */]();
+        this.selectedReimbursement = new __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */]();
         this.router = router;
-        this.reimPipe = new __WEBPACK_IMPORTED_MODULE_4__pipes_reimbursement_status_pipe__["a" /* ReimbursementStatusPipe */]();
+        this.reimPipe = new __WEBPACK_IMPORTED_MODULE_3__pipes_reimbursement_status_pipe__["a" /* ReimbursementStatusPipe */]();
     }
     ReimbursementListComponent.prototype.getFilteredReimbursements = function () {
         var _this = this;
@@ -1253,8 +1278,8 @@ var ReimbursementListComponent = (function () {
     };
     ReimbursementListComponent.prototype.sort = function (field, desc) {
         this.reimbursements.sort(function (a, b) {
-            var aValue = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].getFieldByString(a, field);
-            var bValue = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].getFieldByString(b, field);
+            var aValue = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].getFieldByString(a, field);
+            var bValue = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].getFieldByString(b, field);
             switch (true) {
                 case (aValue > bValue):
                     return 1;
@@ -1265,15 +1290,16 @@ var ReimbursementListComponent = (function () {
             }
         });
     };
-    ReimbursementListComponent.prototype.openDetailView = function (reimbursement) {
-        this.selectedReimbursement = reimbursement;
+    ReimbursementListComponent.prototype.onSelected = function (reimbursement) {
+        this.reimService.setSelected(reimbursement);
     };
     ReimbursementListComponent.prototype.startNewReimbursement = function () {
-        var subject = new __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["a" /* Reimbursement */]();
+        var subject = new __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["a" /* Reimbursement */]();
         subject.id = 0;
-        subject.state = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
+        subject.state = __WEBPACK_IMPORTED_MODULE_2__beans_reimbursement__["b" /* ReimbursementWrapper */].STATE_UPDATE;
         subject.author = this.user;
-        this.selectedReimbursement = subject;
+        subject.type = { id: 3, description: "" };
+        this.reimService.setSelected(subject);
     };
     ReimbursementListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1292,9 +1318,9 @@ var ReimbursementListComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/reimbursement-list/reimbursement-list.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_reimbursements_service__["a" /* ReimbursementsService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_authorization_service__["a" /* AuthorizationService */],
-            __WEBPACK_IMPORTED_MODULE_7__services_login_service__["a" /* LoginService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_reimbursements_service__["a" /* ReimbursementsService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_authorization_service__["a" /* AuthorizationService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_login_service__["a" /* LoginService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
     ], ReimbursementListComponent);
     return ReimbursementListComponent;
@@ -1636,14 +1662,13 @@ var AlertMessage = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/services/authorization.service.ts":
+/***/ "../../../../../src/app/services/api.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthorizationService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1655,21 +1680,68 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+var ApiService = (function () {
+    function ApiService() {
+    }
+    ApiService.prototype.getApiUrl = function (apiNode, params) {
+        if (params === void 0) { params = []; }
+        return [
+            this.getApiPrefix(),
+            apiNode,
+            params.join('/'),
+        ].join('/');
+    };
+    ApiService.prototype.getApiPrefix = function () {
+        return __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiPrefix;
+    };
+    ApiService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], ApiService);
+    return ApiService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/authorization.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthorizationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// services
 
 var AuthorizationService = (function () {
-    function AuthorizationService(client) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_2__beans_servlet__["a" /* Servlet */].getServiceUrl('acl');
+    function AuthorizationService(httpClient, apiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
+        this.api = 'acl';
     }
     AuthorizationService.prototype.authorize = function (request) {
         var data = request.toJson();
-        return this.client.post(this.url, data, {
+        var url = this.apiService.getApiUrl(this.api);
+        return this.http.post(url, data, {
             withCredentials: true,
         });
     };
     AuthorizationService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]])
     ], AuthorizationService);
     return AuthorizationService;
 }());
@@ -1686,10 +1758,11 @@ var AuthorizationService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_share__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/share.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reimbursements_service__ = __webpack_require__("../../../../../src/app/services/reimbursements.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1704,16 +1777,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 // other services
 
+
+
 var LoginService = (function () {
-    function LoginService(client, alertService, router) {
+    function LoginService(httpClient, alertService, router, apiService, reimbursementService) {
         this.router = router;
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_5__beans_servlet__["a" /* Servlet */].getServiceUrl('login');
+        this.http = httpClient;
         this.alertService = alertService;
-        this.subject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.apiService = apiService;
+        this.reimService = reimbursementService;
+        this.api = 'login';
+        this.currentUserSubject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](null);
+        this.get();
     }
     LoginService.prototype.login = function (identity, credential) {
         this.post(identity, credential);
@@ -1725,51 +1802,69 @@ var LoginService = (function () {
     * BEGIN: observables
     */
     LoginService.prototype.getCurrentUser = function () {
-        this.get();
-        return this.subject;
+        return this.currentUserSubject;
+    };
+    LoginService.prototype.setCurrentUser = function (user) {
+        this.currentUserSubject.next(user);
+        if (user) {
+            this.reimService.getAll();
+        }
+        else {
+            this.reimService.clearList();
+        }
     };
     /*
     * BEGIN: CRUD
     */
     LoginService.prototype.get = function () {
         var _this = this;
-        this.client.get(this.url, { withCredentials: true })
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.get(url, { withCredentials: true })
             .subscribe(function (user) {
-            _this.subject.next(user);
+            _this.setCurrentUser(user);
         });
     };
     LoginService.prototype.post = function (identity, credential) {
         var _this = this;
-        console.log('attempting to authenticate user');
-        var body = JSON.stringify({
+        var url = this.apiService.getApiUrl(this.api);
+        var data = JSON.stringify({
             identity: identity,
             credential: credential
         });
-        this.client.post(this.url, body, { withCredentials: true }).subscribe(function (user) {
-            _this.subject.next(user);
-            _this.broadcast("user " + user.identity + " authenticated successfully", __WEBPACK_IMPORTED_MODULE_6__alert_service__["a" /* AlertMessage */].CATEGORY_SUCCESS);
+        console.log('attempting to authenticate user');
+        this.http.post(url, data, { withCredentials: true })
+            .subscribe(function (user) {
+            console.log('user authenticated successfully');
+            _this.setCurrentUser(user);
+            _this.broadcast("user " + user.identity + " authenticated successfully", __WEBPACK_IMPORTED_MODULE_5__alert_service__["a" /* AlertMessage */].CATEGORY_SUCCESS);
         }, function (error) {
             console.log('user could not be authenticated');
-            _this.subject.next(null);
-            _this.broadcast('authentication failed', __WEBPACK_IMPORTED_MODULE_6__alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
+            _this.currentUserSubject.next(null);
+            _this.reimService.clearList();
+            _this.broadcast('authentication failed', __WEBPACK_IMPORTED_MODULE_5__alert_service__["a" /* AlertMessage */].CATEGORY_ERROR);
         });
     };
     LoginService.prototype.delete = function () {
         var _this = this;
-        this.client.delete(this.url, { withCredentials: true }).subscribe(function (user) {
-            _this.subject.next(null);
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.delete(url, { withCredentials: true })
+            .subscribe(function (user) {
+            _this.setCurrentUser(null);
             _this.router.navigate(['home']);
-            _this.broadcast("user " + user.identity + " signed out successfully", __WEBPACK_IMPORTED_MODULE_6__alert_service__["a" /* AlertMessage */].CATEGORY_INFO);
+            _this.broadcast("user " + user.identity + " signed out successfully", __WEBPACK_IMPORTED_MODULE_5__alert_service__["a" /* AlertMessage */].CATEGORY_INFO);
         });
     };
     LoginService.prototype.broadcast = function (message, category) {
         this.alertService.push(message, category);
         console.log(message);
     };
-    LoginService.USER_KEY = 'login-user';
     LoginService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_6__alert_service__["b" /* AlertService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_5__alert_service__["b" /* AlertService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_6__api_service__["a" /* ApiService */],
+            __WEBPACK_IMPORTED_MODULE_7__reimbursements_service__["a" /* ReimbursementsService */]])
     ], LoginService);
     return LoginService;
 }());
@@ -1786,8 +1881,8 @@ var LoginService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1800,26 +1895,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// beans
-
 // other services
 
+
 var ReceiptService = (function () {
-    function ReceiptService(client, alertService) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_3__beans_servlet__["a" /* Servlet */].getServiceUrl('receipt');
+    function ReceiptService(httpClient, alertService, apiService) {
+        this.http = httpClient;
         this.alertService = alertService;
+        this.apiService = apiService;
         this.savedSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+        this.api = 'receipts';
     }
     ReceiptService.prototype.save = function (receipt) {
         var _this = this;
         var form = new FormData();
+        var url = this.apiService.getApiUrl(this.api);
         console.log('attempting to upload a new receipt document');
         form.append('file', receipt, receipt.name);
-        this.client.post(this.url, form, { withCredentials: true })
+        this.http.post(url, form, { withCredentials: true })
             .subscribe(function (savedReceipt) {
             _this.savedSubject.next(savedReceipt);
-            _this.broadcast('receipt uploaded successfully', __WEBPACK_IMPORTED_MODULE_4__alert_service__["a" /* AlertMessage */].CATEGORY_SUCCESS);
+            _this.broadcast('receipt uploaded successfully', __WEBPACK_IMPORTED_MODULE_3__alert_service__["a" /* AlertMessage */].CATEGORY_SUCCESS);
         });
     };
     /*
@@ -1834,7 +1930,7 @@ var ReceiptService = (function () {
     };
     ReceiptService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__alert_service__["b" /* AlertService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__alert_service__["b" /* AlertService */], __WEBPACK_IMPORTED_MODULE_4__api_service__["a" /* ApiService */]])
     ], ReceiptService);
     return ReceiptService;
 }());
@@ -1850,8 +1946,8 @@ var ReceiptService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReimbursementStatusService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1864,32 +1960,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// services
 
 var ReimbursementStatusService = (function () {
-    function ReimbursementStatusService(client) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_3__beans_servlet__["a" /* Servlet */].getServiceUrl('reimbursementstatuses');
-        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+    function ReimbursementStatusService(httpClient, apiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
+        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
+        this.api = 'reimbursementstatuses';
         this.getAll();
     }
     /*
     * BEGIN: observables
     */
     ReimbursementStatusService.prototype.getList = function () {
-        this.getAll();
         return this.listSubject;
     };
-    /*
-    * BEGIN: CRUD
-    */
     ReimbursementStatusService.prototype.getAll = function () {
         var _this = this;
-        this.client.get(this.url, { withCredentials: true })
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.get(url, { withCredentials: true })
             .subscribe(function (statuses) { return _this.listSubject.next(statuses); });
     };
     ReimbursementStatusService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__api_service__["a" /* ApiService */]])
     ], ReimbursementStatusService);
     return ReimbursementStatusService;
 }());
@@ -1905,9 +2000,9 @@ var ReimbursementStatusService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReimbursementTypeService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_take__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/take.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1923,35 +2018,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ReimbursementTypeService = (function () {
-    function ReimbursementTypeService(client) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_4__beans_servlet__["a" /* Servlet */].getServiceUrl('reimbursementtypes');
-        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+    function ReimbursementTypeService(httpClient, apiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
+        this.api = 'reimbursementtypes';
+        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
+        this.getAll();
     }
     /*
     * BEGIN: observables
     */
     ReimbursementTypeService.prototype.getList = function () {
-        this.getAll();
         return this.listSubject;
     };
     ReimbursementTypeService.prototype.get = function (id) {
-        var url = [this.url, id].join('/');
-        return this.client.get(url, { withCredentials: true });
+        var url = this.apiService.getApiUrl(this.api, [id]);
+        return this.http.get(url, { withCredentials: true });
     };
-    /*
-    * BEGIN: CRUD
-    */
     ReimbursementTypeService.prototype.getAll = function () {
         var _this = this;
-        this.client.get(this.url, { withCredentials: true })
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.get(url, { withCredentials: true })
             .subscribe(function (types) {
             _this.listSubject.next(types);
         });
     };
     ReimbursementTypeService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__api_service__["a" /* ApiService */]])
     ], ReimbursementTypeService);
     return ReimbursementTypeService;
 }());
@@ -1968,9 +2062,10 @@ var ReimbursementTypeService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__ = __webpack_require__("../../../../../src/app/beans/reimbursement.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__beans_reimbursement__ = __webpack_require__("../../../../../src/app/beans/reimbursement.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1983,18 +2078,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// beans
 
+// beans
 
 // other services
 
+
 var ReimbursementsService = (function () {
-    function ReimbursementsService(client, alertService) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_4__beans_servlet__["a" /* Servlet */].getServiceUrl('reimbursements');
-        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.saveSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+    function ReimbursementsService(httpClient, alertService, apiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
         this.alertService = alertService;
+        this.api = 'reimbursements';
+        this.listSubject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
+        this.saveSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+        this.selectedSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
     }
     ReimbursementsService.prototype.save = function (reimbursement) {
         console.log('attempting to save new reimbursement');
@@ -2008,29 +2106,38 @@ var ReimbursementsService = (function () {
     /*
     * BEGIN: observables
     */
+    ReimbursementsService.prototype.setSelected = function (reim) {
+        this.selectedSubject.next(reim);
+    };
+    ReimbursementsService.prototype.getSelected = function () {
+        return this.selectedSubject.asObservable();
+    };
     ReimbursementsService.prototype.getList = function () {
-        this.getAll();
-        return this.listSubject;
+        return this.listSubject.asObservable();
+    };
+    ReimbursementsService.prototype.clearList = function () {
+        this.listSubject.next([]);
     };
     ReimbursementsService.prototype.getSaved = function () {
-        return this.saveSubject;
+        return this.saveSubject.asObservable();
     };
     /*
     * BEGIN: CRUD
     */
     ReimbursementsService.prototype.getAll = function () {
         var _this = this;
-        this.client.get(this.url, { withCredentials: true })
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.get(url, { withCredentials: true })
             .subscribe(function (reimbursements) {
             _this.listSubject.next(reimbursements);
         });
     };
     ReimbursementsService.prototype.post = function (reimbursement) {
         var _this = this;
-        var url = this.url;
-        var dataObject = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].prepareForDao(reimbursement);
+        var url = this.apiService.getApiUrl(this.api);
+        var dataObject = __WEBPACK_IMPORTED_MODULE_4__beans_reimbursement__["b" /* ReimbursementWrapper */].prepareForDao(reimbursement);
         var data = JSON.stringify(dataObject);
-        this.client.post(url, data, { withCredentials: true })
+        this.http.post(url, data, { withCredentials: true })
             .subscribe(function (savedReimbursement) {
             _this.saveSubject.next(savedReimbursement);
             _this.getAll();
@@ -2039,10 +2146,10 @@ var ReimbursementsService = (function () {
     };
     ReimbursementsService.prototype.put = function (reimbursement) {
         var _this = this;
-        var url = [this.url, reimbursement.id].join('/');
-        var dataObject = __WEBPACK_IMPORTED_MODULE_3__beans_reimbursement__["b" /* ReimbursementWrapper */].prepareForDao(reimbursement);
+        var url = this.apiService.getApiUrl(this.api, [reimbursement.id]);
+        var dataObject = __WEBPACK_IMPORTED_MODULE_4__beans_reimbursement__["b" /* ReimbursementWrapper */].prepareForDao(reimbursement);
         var data = JSON.stringify(dataObject);
-        this.client.put(url, data, { withCredentials: true })
+        this.http.put(url, data, { withCredentials: true })
             .subscribe(function (updatedReimbursement) {
             _this.saveSubject.next(updatedReimbursement);
             _this.broadcast('updated reimbursement successfully', __WEBPACK_IMPORTED_MODULE_5__alert_service__["a" /* AlertMessage */].CATEGORY_SUCCESS);
@@ -2054,7 +2161,7 @@ var ReimbursementsService = (function () {
     };
     ReimbursementsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_5__alert_service__["b" /* AlertService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_5__alert_service__["b" /* AlertService */], __WEBPACK_IMPORTED_MODULE_6__api_service__["a" /* ApiService */]])
     ], ReimbursementsService);
     return ReimbursementsService;
 }());
@@ -2137,8 +2244,8 @@ var RoutePermissionService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__beans_servlet__ = __webpack_require__("../../../../../src/app/beans/servlet.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2151,18 +2258,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// services
 
 var UsersService = (function () {
-    function UsersService(client) {
-        this.client = client;
-        this.url = __WEBPACK_IMPORTED_MODULE_3__beans_servlet__["a" /* Servlet */].getServiceUrl('users');
-        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+    function UsersService(httpClient, apiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
+        this.api = 'users';
+        this.listSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
+        this.getAll();
     }
     /*
     * BEGIN: observables
     */
     UsersService.prototype.getList = function () {
-        this.getAll();
         return this.listSubject;
     };
     /*
@@ -2170,12 +2279,13 @@ var UsersService = (function () {
     */
     UsersService.prototype.getAll = function () {
         var _this = this;
-        this.client.get(this.url, { withCredentials: true })
+        var url = this.apiService.getApiUrl(this.api);
+        this.http.get(url, { withCredentials: true })
             .subscribe(function (users) { return _this.listSubject.next(users); });
     };
     UsersService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__api_service__["a" /* ApiService */]])
     ], UsersService);
     return UsersService;
 }());
@@ -2189,12 +2299,9 @@ var UsersService = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: true,
+    apiPrefix: '/ers',
 };
 
 

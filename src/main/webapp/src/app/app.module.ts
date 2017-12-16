@@ -30,6 +30,7 @@ import { AuthorizationService } from './services/authorization.service';
 import { AlertService } from './services/alert.service';
 import { ReceiptService } from './services/receipt.service';
 import { RoutePermissionService } from './services/route-permission.service';
+import { ApiService } from './services/api.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -82,6 +83,7 @@ import { RouteGuard } from './guards/route.guard';
     AlertService,
     ReceiptService,
     RoutePermissionService,
+    ApiService,
 
     DatePipe,  // TODO: do this differently
 

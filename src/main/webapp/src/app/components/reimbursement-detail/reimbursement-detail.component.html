@@ -1,4 +1,4 @@
-<div id="app-reimbursement-detail" class="modal fade" tabindex="-1" role="dialog">
+<div #reimModal id="app-reimbursement-detail" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,13 +11,13 @@
       </div>
       <div class="modal-body">
         <div class="container px-3">
-          <form>
+          <form #reimForm>
               <!-- ROW 1 (author, status)-->
               <div class="form-group row" *ngIf="isNew() === false">
 
                 <label for="input-author" class="col-md-2 col-form-label"><span class="font-weight-bold">Author:</span></label>
                 <div class="col-md-4">
-                  <input type="text" readonly id="input-author" class="form-control-plaintext text-left" [value]="reimCopy?.author?.displayName">
+                  <input type="text" readonly id="input-author" class="form-control-plaintext text-left" [value]="reimbursement?.author?.displayName">
                 </div>
 
                 <label for="input-status" class="col-form-label col-md-2"><span class="font-weight-bold">Status:</span></label>
@@ -31,10 +31,10 @@
               <div class="form-group row" *ngIf="isNew() === false">
                 <label for="input-submitted" class="col-form-label col-md-2"><span class="font-weight-bold">Submitted:</span></label>
                 <div class="col-md-4">
-                  <input type="text" readonly id="input-submitted" class="form-control-plaintext text-left" [value]="reimCopy.submitted | date:'MM/dd/yyyy hh:mm a'">
+                  <input type="text" readonly id="input-submitted" class="form-control-plaintext text-left" [value]="reimbursement.submitted | date:'MM/dd/yyyy hh:mm a'">
                 </div>
 
-                <ng-container *ngIf="inEditableState() === false && reimCopy.resolved !== 'null'; then displayResolvedDate"></ng-container>
+                <ng-container *ngIf="inEditableState() === false && reimbursement.resolved !== 'null'; then displayResolvedDate"></ng-container>
 
               </div>
 
@@ -55,7 +55,8 @@
                 <div class="col-md-4">
                    <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-usd"></span></span>
-                    <input type="text" [readonly]="inUpdateState() === false" id="input-submitted" class="form-control text-left" name="amount" [ngModel]="reimCopy.amount | number:'1.2-2'" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="reimCopy.amount = $event">
+                    <input required type="text" [readonly]="inUpdateState() === false" id="input-submitted" class="form-control text-left" name="amount" [ngModel]="reimbursement.amount | number:'1.2-2'" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="reimbursement.amount = $event">
+                    <div class="invalid-feedback">Please enter the amount.</div>
                   </div>
                 </div>
 
@@ -71,7 +72,8 @@
               <!-- ROW 6 description-->
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea class="form-control" name="input-description" rows="5" [readonly]="inUpdateState() === false" [(ngModel)]="reimCopy.description"></textarea>
+                  <textarea required class="form-control" name="input-description" rows="5" [readonly]="inUpdateState() === false" [(ngModel)]="reimbursement.description"></textarea>
+                  <div class="invalid-feedback">Please provide a description.</div>
               </div>
               </div>
 
@@ -103,7 +105,7 @@
 
 <!-- TITLE -->
 <ng-template #detailTitle>
-  Reimbursement Detail&nbsp;[ {{ reimCopy.id }} ]
+  Reimbursement Detail&nbsp;[ {{ reimbursement.id }} ]
 </ng-template>
 
 <ng-template #newTitle>
@@ -112,29 +114,31 @@
 
 <!-- STATUS-->
 <ng-template #statusSelection>
-  <select #reimStatus id="input-status" class="custom-select" (change)="onStatusSelect( reimStatus.value )">
-    <option *ngFor="let status of reimStatuses" [value]="status.id" [selected]="status.id === reimCopy?.status?.id">
+  <select #reimStatus required id="input-status" class="custom-select" (change)="onStatusSelect(reimStatus.value)">
+    <option *ngFor="let status of reimStatuses" [value]="status.id" [selected]="status.id === reimbursement?.status?.id" >
       {{ status.description }}
     </option>
   </select>
+  <div class="invalid-feedback">Status is not detected.</div>
 </ng-template>
 
 <ng-template #statusDisplay>
-    <input type="text" readonly id="input-status" class="form-control-plaintext" [value]="reimCopy?.status?.description">
+    <input type="text" readonly id="input-status" class="form-control-plaintext" [value]="reimbursement?.status?.description">
 </ng-template>
 
 
 <!-- TYPE -->
 <ng-template #typeSelection>
-  <select #reimType id="input-type" class="custom-select" (change)="onTypeSelect( reimType.value )">
-    <option *ngFor="let type of reimTypes" [value]="type.id" [selected]="type.id === reimCopy?.type?.id">
+  <select #reimType required id="input-type" class="custom-select" (change)="onTypeSelect( reimType.value )">
+    <option *ngFor="let type of reimTypes" [value]="type.id" [selected]="type.id === reimbursement?.type?.id">
       {{ type.description }}
     </option>
   </select>
+  <div class="invalid-feedback">Please select a type.</div>
 </ng-template>
 
 <ng-template #typeDisplay>
-  <input type="text" readonly id="input-type" class="form-control-plaintext" [value]="reimCopy?.type?.description">
+  <input type="text" readonly id="input-type" class="form-control-plaintext" [value]="reimbursement?.type?.description">
 </ng-template>
 
 
@@ -142,7 +146,7 @@
 <ng-template #displayResolver>
   <label for="input-resolver" class="col-form-label col-md-2"><span class="font-weight-bold">Resolver:</span></label>
   <div class="col-md-4">
-    <input id="input-resolver" type="text" readonly class="form-control-plaintext" [value]="reimCopy?.resolver?.displayName">
+    <input id="input-resolver" type="text" readonly class="form-control-plaintext" [value]="reimbursement?.resolver?.displayName">
   </div>
 </ng-template>
 
@@ -155,7 +159,7 @@
 <ng-template #displayResolvedDate>
   <label for="input-resolved" class="col-form-label col-md-2"><span class="font-weight-bold">Resolved:</span></label>
   <div class="col-md-4">
-    <input type="text" readonly id="input-resolved" class="form-control-plaintext text-left" [value]="reimCopy.resolved | date:'MM/dd/yyyy hh:mm a'">
+    <input type="text" readonly id="input-resolved" class="form-control-plaintext text-left" [value]="reimbursement.resolved | date:'MM/dd/yyyy hh:mm a'">
   </div>
 </ng-template>
 
@@ -188,6 +192,7 @@
     <label for="input-receipt" class="col-form-label col-md-3"><span class="font-weight-bold">Upload Receipt:</span></label>
     
     <div class="col-md-9">
-      <input #receiptUpload type="file" id="input-receipt" class="form-control">
+      <input #receiptUpload required type="file" id="input-receipt" class="form-control">
+      <div class="invalid-feedback">Please upload a receipt.</div>
     </div>
 </ng-template>

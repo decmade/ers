@@ -4,23 +4,30 @@ import { HttpClient } from '@angular/common/http';
 // rxjs
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 // beans
 import { ReimbursementStatus } from '../beans/reimbursement';
-import { Servlet } from '../beans/servlet';
+
+// services
+import { ApiService } from './api.service';
 
 
 @Injectable()
 export class ReimbursementStatusService {
-    private client: HttpClient;
-    private url: string;
-    private listSubject: Subject<ReimbursementStatus[]>;
+    private http: HttpClient;
+    private apiService: ApiService;
 
-    constructor(client: HttpClient) {
-        this.client = client;
-        this.url = Servlet.getServiceUrl('reimbursementstatuses');
-        this.listSubject = new Subject();
+    private api: string;
+    private listSubject: BehaviorSubject<ReimbursementStatus[]>;
+
+    constructor(httpClient: HttpClient, apiService: ApiService) {
+        this.http = httpClient;
+        this.apiService = apiService;
+        
+        
+        this.listSubject = new BehaviorSubject([]);
+        this.api = 'reimbursementstatuses';
 
         this.getAll();
     }
@@ -29,18 +36,14 @@ export class ReimbursementStatusService {
     * BEGIN: observables
     */
     public getList(): Observable<ReimbursementStatus[]> {
-        this.getAll();
-        
         return this.listSubject;
     }
 
+    public getAll(): void {
+        const url = this.apiService.getApiUrl(this.api);
 
-    /*
-    * BEGIN: CRUD
-    */
-    private getAll(): void {
-        this.client.get<ReimbursementStatus[]>( this.url, { withCredentials: true })
-            .subscribe( (statuses) => this.listSubject.next( statuses ) );
+        this.http.get<ReimbursementStatus[]>( url, { withCredentials: true })
+            .subscribe( (statuses) => this.listSubject.next(statuses) );
     }
 
 }

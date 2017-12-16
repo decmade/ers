@@ -57,8 +57,6 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
         this.keyword = '';
         this.state = 'pending';
         this.selectedReimbursement = new Reimbursement();
-        this.reimbursementListSubscription = new Subscription();
-        this.currentUserSubscription = new Subscription();
         this.router = router;
         this.reimPipe = new ReimbursementStatusPipe();
     }
@@ -102,8 +100,8 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
         });
     }
 
-  public openDetailView(reimbursement: Reimbursement): void {
-      this.selectedReimbursement = reimbursement;
+  public onSelected(reimbursement: Reimbursement): void {
+      this.reimService.setSelected(reimbursement);
   }
 
   public startNewReimbursement(): void {
@@ -112,8 +110,9 @@ export class ReimbursementListComponent implements OnInit, OnDestroy {
       subject.id = 0;
       subject.state = ReimbursementWrapper.STATE_UPDATE;
       subject.author = this.user;
+      subject.type = { id: 3, description: ""};
 
-      this.selectedReimbursement = subject;
+      this.reimService.setSelected(subject);
   }
 
   ngOnInit(): void {

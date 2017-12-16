@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnDestroy, ElementRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 // rxjs
@@ -20,6 +20,7 @@ import { ReimbursementStatusService } from '../../services/reimbursement-status.
 import { ReceiptService } from '../../services/receipt.service';
 import { LoginService } from '../../services/login.service';
 
+import * as any from 'jquery';
 
 @Component({
     selector: 'app-reimbursement-detail',
@@ -27,9 +28,12 @@ import { LoginService } from '../../services/login.service';
     styleUrls: ['./reimbursement-detail.component.css']
 })
 
-export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChanges {
-    @Input() reimbursement: Reimbursement;
-    @ViewChild('receiptUpload') receiptUpload: any;
+export class ReimbursementDetailComponent implements OnInit, OnDestroy {
+    private reimbursement: Reimbursement;
+    
+    @ViewChild('receiptUpload') receiptUpload: ElementRef;
+    @ViewChild('reimForm') form: ElementRef;
+    @ViewChild('reimModal') modal: ElementRef;
 
     private loginService: LoginService;
     private reimService: ReimbursementsService;
@@ -43,6 +47,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
     private datePipe: DatePipe;
     private user: User;
     private userSubscription: Subscription;
+    private selectedReimbursementSubscription: Subscription;
     private savedReceiptsSubscription: Subscription;
     private savedReimbursementsSubscription: Subscription;
     private reimbursementStatusListSubscription: Subscription;
@@ -66,8 +71,8 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
         this.reimTypes = [];
         this.reimStatuses = [];
         this.datePipe = datePipe;
-        this.cloneObject();
         this.reimbursement = new Reimbursement();
+        this.reimCopy = new Reimbursement();
     }
 
     public getTypeClass(): any {
@@ -86,19 +91,20 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
     public onTypeSelect(id: string): void {
         this.reimTypeService.get(id).subscribe( (type) => {
-            this.reimCopy.type = type;
+            this.reimbursement.type = type;
         });
     }
 
     public onStatusSelect(statusId: string): void {
-        this.reimCopy.status = this.getStatusById( Number(statusId) );
-        this.reimCopy.resolver = this.user;
-        this.reimCopy.resolved = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm:ss.S');
+        this.reimbursement.status = this.getStatusById( Number(statusId) );
+        this.reimbursement.resolver = this.user;
+        this.reimbursement.resolved = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm:ss.S');
+        console.log(this.reimbursement);
     }
 
     public onSave() {
 
-        if ( this.validateObject() ) {
+        if ( this.validateForm() ) {
             if ( this.inReceiptUpdateState() ) {
                this.uploadReceipt();
             } else {
@@ -110,7 +116,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
     }
 
     public onCancel() {
-        this.cloneObject();
+        this.unPark();
     }
 
     public inUpdateState(): boolean {
@@ -134,7 +140,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
     public inReceiptUpdateState() {
         switch ( true ) {
-            case ( this.reimCopy.state === ReimbursementWrapper.STATE_UPDATE_RECEIPT ) :
+            case ( this.reimbursement.state === ReimbursementWrapper.STATE_UPDATE_RECEIPT ) :
             case ( this.isNew() ) :
                 return true;
             default :
@@ -144,11 +150,11 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
     public isNew(): boolean {
         switch (true) {
-            case ( this.reimCopy === null ) :
-            case ( this.reimCopy === undefined ) :
+            case ( this.reimbursement === null ) :
+            case ( this.reimbursement === undefined ) :
                 return false;
-            case ( this.reimCopy.id === 0 ) :
-            case ( this.reimCopy.author === undefined ) :
+            case ( this.reimbursement.id === 0 ) :
+            case ( this.reimbursement.author === undefined ) :
                 return true;
             default :
                 return false;
@@ -156,7 +162,7 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
     }
 
     public setReceiptUpdateState(): void {
-        this.reimCopy.state = ReimbursementWrapper.STATE_UPDATE_RECEIPT;
+        this.reimbursement.state = ReimbursementWrapper.STATE_UPDATE_RECEIPT;
     }
 
     private uploadReceipt(): void {
@@ -173,7 +179,16 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
     }
 
     private saveReimbursement(): void {
-        this.reimService.save(this.reimCopy);
+        this.reimService.save(this.reimbursement);
+    }
+
+    private setReimbursement(reim: Reimbursement): void {
+        const modal = $(this.modal.nativeElement);
+
+        
+        this.reimbursement = reim;
+        this.park();
+        modal.modal('show');
     }
 
     private getTypeById(id: number): ReimbursementType {
@@ -184,19 +199,28 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
         return this.reimStatuses.filter( rStatus => rStatus.id === id)[0];
     }
 
-    private cloneObject(): void {
-        this.reimCopy = new Reimbursement();
-        ReimbursementWrapper.copy(this.reimbursement, this.reimCopy);
+    private park(): void {
+        Object.assign(this.reimCopy, this.reimbursement);
+    }
 
-        if ( this.isNew() ) {
-            this.reimCopy.author = this.user;
-            this.reimCopy.type = this.reimTypes[0];
-            this.reimCopy.status = this.getStatusById(1);
+    private unPark(): void {
+        Object.assign(this.reimbursement, this.reimCopy);
+    }
+
+    private validateForm(): boolean {
+        const form = this.form.nativeElement;
+  
+        switch (true) {
+            case ( form.checkValidity() === false ):
+                $(form).addClass('was-validated');
+                return false;
+            default :
+                return true;
         }
     }
 
     private validateObject() {
-        const object = this.reimCopy;
+        const object = this.reimbursement;
 
         switch (true) {
             case ( object === null ) :
@@ -227,13 +251,16 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
 
     ngOnInit(): void {
+        this.selectedReimbursementSubscription = this.reimService.getSelected()
+            .subscribe( (reim) => this.setReimbursement(reim) );
+
         this.userSubscription = this.loginService.getCurrentUser()
             .subscribe( (user) => this.user = user );
 
         this.savedReceiptsSubscription = this.receiptService.getSaved()
             .subscribe( (receipt) => {
-                this.reimCopy.receipt = receipt;
-                this.reimCopy.state = ReimbursementWrapper.STATE_UPDATE;
+                this.reimbursement.receipt = receipt;
+                this.reimbursement.state = ReimbursementWrapper.STATE_UPDATE;
                 this.saveReimbursement();
             }, (error) => {
                 this.alertService.push('receipt upload failed', AlertMessage.CATEGORY_ERROR);
@@ -241,9 +268,10 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
 
         this.savedReimbursementsSubscription = this.reimService.getSaved()
             .subscribe( (reimbursement) => {
-                ReimbursementWrapper.copy( reimbursement, this.reimbursement );
-                this.cloneObject();
-                $('#app-reimbursement-detail').modal('hide');
+                const modal = $(this.modal.nativeElement);
+                
+                Object.assign(this.reimbursement, reimbursement);
+                modal.modal('hide');
             });
 
         this.reimbursementStatusListSubscription = this.reimStatusService.getList()
@@ -253,12 +281,8 @@ export class ReimbursementDetailComponent implements OnInit, OnDestroy, OnChange
             .subscribe( (types) => this.reimTypes = types );
     }
 
-    ngOnChanges(): void {
-        this.cloneObject();
-    }
-
     ngOnDestroy(): void {
-
+        this.selectedReimbursementSubscription.unsubscribe();
         this.userSubscription.unsubscribe();
         this.savedReceiptsSubscription.unsubscribe();
         this.reimbursementStatusListSubscription.unsubscribe();
