@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
-import com.revature.ers.beans.interfaces.ReceiptInterface;
+import com.revature.ers.entities.Receipt;
 import com.revature.ers.logger.IOLogger;
 import com.revature.ers.logger.LoggerInterface;
 import com.revature.ers.props.ApplicationProperties;
@@ -93,8 +93,8 @@ public class ReceiptFileUpload {
 	 * 
 	 * @return File
 	 */
-	public static File retrieve(ReceiptInterface receipt) {
-		return new File( getRootPath(), receipt.getFileName() );
+	public static File retrieve(Receipt receipt) {
+		return new File( getRootPath(), receipt.fileName);
 	}
 	
 	/**

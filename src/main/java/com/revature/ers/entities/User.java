@@ -32,5 +32,4 @@ public class User extends AbstractEntity {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "role_id", referencedColumnName = "id")
 	public Role role;
-	
 }

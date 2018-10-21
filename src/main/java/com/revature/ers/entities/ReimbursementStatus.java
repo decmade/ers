@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reimbursements")
+@Table(name = "reimbursement_statuses")
 public class ReimbursementStatus extends AbstractEntity {
 	
 	@Column(length = 50)
